@@ -9,7 +9,7 @@
     <meta name="author" content="breayhing">
     <meta name="description" content="目前在更进的一个小网站 ">
     <meta name="keywords" content=" ">
-    <link rel="icon" href="/images/avatar.png">
+    <link rel="icon" href="//images/head.png">
     <link rel="stylesheet" href="/css/antd.min.css">
     
     <link rel="stylesheet" href="/css/night-theme.css">
@@ -165,7 +165,7 @@
                 </div>
 
                 <div id="main">
-                    <div id="home-head" style=background-image:url('home.jpg')>
+                    <div id="home-head" style=background-image:url('night.jpg')>
     <script>
         var menu = document.getElementById("menu")
         menu.className += " menu-color"
@@ -194,6 +194,108 @@
 
         <div id="posts">
             
+
+<div class="post">
+
+    <a href="/2023/03/02/sse-net计算机网络笔记/">
+        <h2>
+            sse-net计算机网络笔记
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2023/3/2
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>参考网课：</p>
+<h5 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h5><p>protocol:发起连接时候双方都遵守的一定规则(<strong>规范语法，语义，时序</strong>)</p>
+<p>DSL：最之前家庭网络连接方法（数字用户线）</p>
+<p>internet标准：</p>
+<ul>
+<li>RFC</li>
+<li>IETF</li>
+<li>WIFI</li>
+<li>WAPI</li>
+</ul>
+<p>TCP：传输控制协议，应用</p>
+<ul>
+<li>HTTP</li>
+<li>FTP</li>
+<li>SMTP</li>
+<li>Telnet</li>
+</ul>
+<p>Host:数据发送方</p>
+<p>Links:实体媒介（网络线缆等等）</p>
+<p>结论：链路交换不适合计算机之间通信</p>
+<ul>
+<li>建立时间长</li>
+<li>可靠性低</li>
+<li>浪费资源较多</li>
+</ul>
+<h5 id="Chapter-2"><a href="#Chapter-2" class="headerlink" title="Chapter 2"></a>Chapter 2</h5><p>提问部分：</p>
+<p>对于浏览器下载文件通常是分为小切片下载在缓存中并通过相关算法拼凑，如果中断重新连接能否继续下载则看软件相关系统处理方式怎么样</p>
+<p>对于访问github等网站时（<strong>应用层web部分</strong>）如果访问时间过长系统会判定为连接失败从而放弃</p>
+<hr>
+<p>开始讲解分组交换</p>
+<p>分组交换与链路交换</p>
+<p>分组交换网络 存储-转发</p>
+<h6 id="ISP"><a href="#ISP" class="headerlink" title="ISP"></a>ISP</h6><p>第一层ISP：面向客户网络结算点（负责收费）</p>
+<p>IXP：连接多个对等之间的ISP</p>
+<p>ICP：（conternt provider）部署自身专用网络并且与各级ISP连接</p>
+<p>网络中每一个节点都是不一样的</p>
+<h6 id="四种延迟"><a href="#四种延迟" class="headerlink" title="四种延迟"></a>四种延迟</h6><p>传输延迟：一个数据分组需要多长时间发送出来（缓存中也有一个排队延迟）</p>
+<p>处理延时：分组时候查看信号是否有错误情况，</p>
+<p>排队延时：随机的，与当前网络情况相关（比如发送请求）</p>
+<p>传播延迟：物理层面传播的延迟（在线路中传输的速度）</p>
+<p>应用：可以根据运营商的中心机房位置去抢票（乐）</p>
+<h5 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h5><h6 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h6><p>time to live</p>
+<p>连接时候给定连接时间，超过该时间则认定为连接超时，随后显示网络连接失败</p>
+<h6 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h6><p>给定时间内平均吞吐量</p>
+<h6 id="协议层"><a href="#协议层" class="headerlink" title="协议层"></a>协议层</h6><p>网络层次：不同邻接层次之间有相应接口来传输，每一层都向上一层提供服务</p>
+<p>分层顺序：5层</p>
+<p><strong>应用层，传输层，网络层，链路层，物理层</strong></p>
+<p>服务访问点：SAP，上层使用下层的服务通过层之间的接口-地点</p>
+<p>举例：邮箱（SMTP）</p>
+<p>无连接服务：无需预留资源，不需要双方活跃（比如email传输和qq等聊天软件发送信息）</p>
+<p>网络连接需要：端口号</p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/计算机网络" style=color:#006674>
+                计算机网络
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2023/03/02/sse-net计算机网络笔记/ " class="go-post">
+        阅读全文
+    </a>
+</div>
 
 <div class="post">
 
@@ -246,7 +348,7 @@
         
         <span class="tag">
             
-            <a href="/tags/那些神奇的坑与神奇的问题" style=color:#6484be>
+            <a href="/tags/那些神奇的坑与神奇的问题" style=color:#607d8b>
                 那些神奇的坑与神奇的问题
             </a>
         </span>
@@ -254,59 +356,6 @@
     </div>
 
     <a href="/2023/03/02/建立站点/ " class="go-post">
-        阅读全文
-    </a>
-</div>
-
-<div class="post">
-
-    <a href="/2023/03/02/hello-world/">
-        <h2>
-            Hello World
-        </h2>
-    </a>
-
-    <div class="category-and-date">
-
-        
-
-        <span class="date">
-            <span class="icon">
-                <a-icon type="calendar" theme="filled" />
-            </span>
-            2023/3/2
-        </span>
-
-    </div>
-
-    <div class="excerpt">
-        <div class="content" v-pre>
-            
-            
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-        </div>
-    </div>
-
-    <div class="post-tags">
-        
-        
-    </div>
-
-    <a href="/2023/03/02/hello-world/ " class="go-post">
         阅读全文
     </a>
 </div>
@@ -344,7 +393,7 @@
         <a-affix :offset-top="card_top">
     <a-card class="card-style" style="width: 300px">
         <div class="avatar">
-            <img src="images/avatar.png " alt="头像">
+            <img src="/images/head.png " alt="头像">
         </div>
         <div class="name">
             breayhing
@@ -363,7 +412,7 @@
         <div class="icon-links">
             
             <span class="icon-link">
-                <a target="_blank" rel="noopener" href="https://github.com/korilin">
+                <a target="_blank" rel="noopener" href="https://github.com/breayhing">
 
                     
                     <a-icon type="github"
