@@ -9,7 +9,7 @@
     
     <title>
         
-            CS-net-assignment#1 |
+            软件分析与设计 |
         
         Breayhing的博客
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">CS-net-assignment#1</span>
+                <span class="title-hover-animation">软件分析与设计</span>
             </div>
 
             
@@ -199,13 +199,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-03-03 11:29:04</span>
-        <span class="mobile">2023-03-03 11:29</span>
+        <span class="pc">2023-03-08 14:35:27</span>
+        <span class="mobile">2023-03-08 14:35</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-03-03 11:39:25</span>
+        <span class="pc">2023-03-09 16:40:45</span>
     </span>
     
     
@@ -215,7 +215,7 @@
             <ul>
                 
                     <li>
-                        <a href="../../../../tags/cs-net/">cs-net</a>&nbsp;
+                        <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
                     </li>
                 
             </ul>
@@ -225,12 +225,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>828 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -244,45 +244,186 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h2 id="SSE206-Computer-Networks-Assignment-1"><a href="#SSE206-Computer-Networks-Assignment-1" class="headerlink" title="SSE206 Computer Networks Assignment #1"></a><strong>SSE206 Computer Networks Assignment #1</strong></h2><p>Q1：</p>
-<p>今天最流行的无限因特网接入技术有WIFI和4G接入。WIFI速度快但距离短（距离基站近），4G速度慢但距离远（距离基站远），以及最新的5G技术，相对于4G具有更低时间延迟，更高连接速率。</p>
-<p>Q2：</p>
-<p>电路交换更适合。</p>
-<p>原因：对于以稳定速率传输数据，并且持续长时间运行的应用程序。电路交换网可以</p>
+                <h5 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h5><p>软件生命周期</p>
 <ul>
-<li>传输数据速率稳定，因此电路交换可以为其保留带宽，可以为其保留带宽，保证应用程序以稳定的速率接收数据</li>
-<li>由于需要持续长时间运行，即不需要重复建立连接，分组交换相对电路交换的优势并不大</li>
-<li>通信线路为双方专用，数据直达，故传输时延非常小</li>
+<li>软件定义</li>
+<li>软件开发</li>
+<li>软件维护</li>
 </ul>
-<p>Q3：（不确定，回头再检查）</p>
-<p>a. 第一个分组交换需要的时间为&#x3D;报文大小&#x2F;链路速率&#x3D; 8 * 10^6 &#x2F; 2 * 10^6 sec &#x3D; 4 sec<br> 源主机到目的主机有三段链路，需要时间为 3 * 4 &#x3D; 12 sec</p>
-<p>b. 从源主机发送第一个分组到第一台交换机1 * 10^4 &#x2F; 2 * 10^6 sec &#x3D; 5 m sec<br> 从第一台交换机发送第一个分组到第二台交换机时间 &#x3D; 从源主机发送第二个分组到第一台交换机时间 &#x3D; 2 * 5 m sec &#x3D; 10 m sec</p>
-<p>c. 第一个分组到达目的地时，花费的时间为 5 m sec * 3 &#x3D; 15 m sec,之后，每隔 5 秒将会有一个分组被接收，一共有 800 个分组 ，除去第一个分组，传输该文件所需要的时间为 15 m sec + 799 * 5 msec &#x3D; 4.01 sec。</p>
-<p>d. </p>
-<p>使用报文分段便于检测错误并且重新传输，不分段的大数据包则容易使得路由器缓存不足导致丢包。</p>
-<p>Q4:</p>
-<p>Skype因为是采用私有信令协议，与运营商的电话网络所使用信令协议不同，因此需要专业的语音网关进行信令转换，因此简单的通信模型如下</p>
-<p>Skype客户端→Skype服务器→语音网关→运营商线路→个人电话</p>
-<p>即语音呼叫必须通过因特网（服务器请求），与电话网（对运营商线路发出请求）</p>
-<p>Q5:</p>
-<p>相对与分组交换网络，电路交换网络优点有：</p>
+<p>人年&#x2F;人月：工程计量单位：一个人干一年&#x2F;月</p>
+<p>相对于实体制造业，软件开发主要困难：正确的软件需求分析与架构设计</p>
+<p>建模：对于某一问题进行一定程度的抽象以更好理解其本质</p>
+<p>软件建模：编码之前对软件应用进行的设计</p>
+<p><strong>UML：统一模型语言：便于理解</strong></p>
+<h6 id="多视图建模"><a href="#多视图建模" class="headerlink" title="多视图建模"></a>多视图建模</h6><ol>
+<li>用例建模：系统的功能性需求按照用例与参与者进行定义</li>
+<li>静态建模：提供系统的结构化视图，类按照其属性及其与其它类的关系进行定义</li>
+<li>动态建模：系统行为视图，主要描述对象之间的交互行为</li>
+<li>软件体系结构：系统的总体结构</li>
+</ol>
+<p>**COMET：主要建模方法，基于面向对象 的核心方法：Collaborative Object Modeling **</p>
+<h5 id="ch1：软件生存周期模型（第三章）"><a href="#ch1：软件生存周期模型（第三章）" class="headerlink" title="ch1：软件生存周期模型（第三章）"></a>ch1：软件生存周期模型（第三章）</h5><p>软件生存周期：将软件本身视为不断迭代的产物，即每一个阶段都有相应目标和计划</p>
+<p>软件过程模型：对于软件开发过程中的抽象</p>
+<h6 id="几种开发模型："><a href="#几种开发模型：" class="headerlink" title="几种开发模型："></a>几种开发模型：</h6><p>瀑布模型：有迭代和重复</p>
+<p>抛弃型模型：复杂系统开发。可以理解为每一个瀑布模型的阶段都开发一个相应的小系统用于检验设计正确性与阐明用户需求</p>
+<p>演化式模型：首先开发一个最小系统（满足基本要求）然后不断在基础上添加内容（想想南大操作系统课程的说法，按照所需内容开发一个最小的核心然后不断添加内容）<strong>中级实训实际就可以考虑这种方法</strong></p>
+<p>螺旋模型：强调风险分析</p>
+<p>USDP：统一软件开发过程</p>
+<p>软件验证和确认：</p>
+<p>SQA：软件测试？</p>
+<h6 id="软件测试："><a href="#软件测试：" class="headerlink" title="软件测试："></a>软件测试：</h6><p>单元测试：</p>
+<p>集成测试：</p>
+<p>系统测试：压力测试等等（如web应用如何处理大量请求）</p>
+<h4 id="3-8日"><a href="#3-8日" class="headerlink" title="3.8日"></a>3.8日</h4><p>问题：</p>
 <ul>
-<li>传输时延非常小</li>
-<li>可以随时通信，实时性强</li>
-<li>不存在失序问题</li>
-<li>交换设备及控制都简单</li>
+<li><p>事件同步是异步的怎么理解？</p>
+<ul>
+<li>即发出消息之后是否需要等待</li>
+<li>如网络连接之后发送请求，需要发送方向接收方发送请求，接受方再回复，这需要立刻执行，属于同步</li>
+<li>如聊天，一方说话，一方不需要立刻回复，属于异步</li>
 </ul>
-<p>电路交换网络中，TDM相对FDM优点：</p>
+</li>
+<li><p>生产者&#x2F;消费者问题为何不需要事件同步<br>+ </p>
+</li>
+<li><p>系统需求与需求分析的差别</p>
 <ul>
-<li>发生拥塞等网络问题时，TDM中数据丢失可能只会是一部分，FDM中就可能是大部分或全部</li>
-<li>电路交换中时分复用能高效地使用网络，因为频分复用建立后，如果中途没有数据传输时，所占有的频段带宽不能被其它连接使用，可能存在空置</li>
+<li>需求分析：透过调研问卷、访谈等方式，挖掘客户所描述需求背后的<strong>管理诉求和要解决的问题</strong>‘</li>
+<li>**系统分析是在需求分析的基础上，抓大放小，针对客户核心价值诉求，结合工具和方法逐步*<em>勾勒和细化解决方案的过程*<em>。</em></em></li>
 </ul>
-<p>Q6:</p>
+</li>
+<li><p>消息与事件</p>
+</li>
+</ul>
+<p>异步消息通信：</p>
 <ul>
-<li>各层对应: 一-物理层, 二-链路层, 三-网络层, 四-运输层, 五-应用层</li>
-<li>路由器处理第一层到第三层</li>
-<li>链路层交换机处理第一层和第二层</li>
-<li>主机处理所有五层.</li>
+<li>松耦合的消息通信，再生产者和消费者之间可以建立一条消息队列</li>
+</ul>
+<h6 id="软件模式"><a href="#软件模式" class="headerlink" title="软件模式"></a>软件模式</h6><p>经常出现问题：<strong>重复造轮子</strong></p>
+<p>软件模式：</p>
+<ul>
+<li><p>体系结构</p>
+<ul>
+<li>定义一个系统中主要子系统的结构</li>
+</ul>
+</li>
+<li><p>分析模式：</p>
+<ul>
+<li>采用静态模型</li>
+</ul>
+</li>
+<li><p>设计模式：描述重复出现的设计问题，对问题的解决方案以及解决方案工作的上下文（<strong>去读大话设计模式</strong>）</p>
+<ul>
+<li>属于一种比类粒度更大的使用方式</li>
+</ul>
+</li>
+<li><p>习惯用法</p>
+<ul>
+<li>针对特定编程语言的设计模式</li>
+<li>如：<ul>
+<li>C与C++偏向底层，但是同时内存管理差，自己可以做到的东西多，运行速度快</li>
+<li>Go：垃圾回收机制完整，适合并发，服务器与云的构建</li>
+<li>Javascript:一种脚本语言，但是指网页中的事件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>构件：</p>
+<ul>
+<li>定义：自包含的，且具有良好定义接口的对象</li>
+</ul>
+<p>链接器：</p>
+<ul>
+<li>封装多个构件之间的互连协议</li>
+</ul>
+<h6 id="软件质量属性"><a href="#软件质量属性" class="headerlink" title="软件质量属性"></a>软件质量属性</h6><ul>
+<li>定义：软件的质量需求，也称为非功能性需求</li>
+<li>包括：<ul>
+<li>可维护性：部署之后能够被更改的程度</li>
+<li>可修改性：最初开发期间和最初开发之后能够被修改的成都</li>
+<li>可测试性：能够被测试的程度</li>
+<li>可追踪性：每个阶段产品能够被追溯到上一阶段产品的程度</li>
+<li>可伸缩性：针对用户量增长时如何快速应对</li>
+<li>可复用性：之后的系统也可以使用</li>
+<li>性能：吞吐量，响应速度等</li>
+<li>安全性：抵御安全威胁的程度</li>
+<li>可用性：能够解决系统失效问题的程度（某个模块失效了能不能快速顶住）</li>
+</ul>
+</li>
+</ul>
+<h6 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h6><ul>
+<li>对象 ，类，信息隐藏，集成</li>
+<li>主动对象，被动对象</li>
+<li>顺序应用，并发应用</li>
+</ul>
+<h5 id="软件体系结构"><a href="#软件体系结构" class="headerlink" title="软件体系结构"></a>软件体系结构</h5><p>COMET：写作的对象建模和设计方法</p>
+<p>差异概念：用户与客户</p>
+<ul>
+<li>用户：软件面对的人（如使用聊天系统的人）</li>
+<li>客户：发起系统构建的人（即甲方爸爸），如提出要求构建一个聊天系统</li>
+</ul>
+<p>用例：</p>
+<ul>
+<li>参与者与用户交互</li>
+</ul>
+<p>需求建模：开发需求模型</p>
+<p>分析模型：状态图</p>
+<ul>
+<li>如对于各种可能的操作应当有怎样的输出回复</li>
+</ul>
+<h6 id="设计建模"><a href="#设计建模" class="headerlink" title="设计建模"></a>设计建模</h6><ul>
+<li><p>设计系统的体系结构</p>
+<ul>
+<li>构建软件与硬件关系</li>
+<li>构件与相关的链接关系确定</li>
+</ul>
+</li>
+<li><p>问题域的分析模型映射到解域的设计模型</p>
+</li>
+<li><p>提供子系统组织准则将系统组织为子系统</p>
+</li>
+<li><p>子系统设计</p>
+<ul>
+<li>顺序系统<ul>
+<li>信息隐藏</li>
+<li>类</li>
+<li>继承</li>
+</ul>
+</li>
+<li>并发系统（如实时，客户端&#x2F;服务器和分布式应用，如项目部署多个机器）<ul>
+<li>额外考虑并发任务</li>
+</ul>
+</li>
+<li>目的：子系统对于构件与链接关系的确定</li>
+</ul>
+</li>
+</ul>
+<h6 id="增量软件集成"><a href="#增量软件集成" class="headerlink" title="增量软件集成"></a>增量软件集成</h6><p>软件测试</p>
+<ul>
+<li>集成测试（测试好的构件进行组合，属于白盒测试，也在意整体构建方式）</li>
+<li>系统测试（黑盒测试，只管测试输入与输出是否对应）</li>
+</ul>
+<p>测试种类</p>
+<ul>
+<li>系统测试（功能测试）</li>
+<li>压力测试（如某一时刻的大量数据输入）</li>
+<li>性能测试（吞吐量等等）</li>
+</ul>
+<h6 id="COMET-USDP"><a href="#COMET-USDP" class="headerlink" title="COMET   USDP"></a>COMET   USDP</h6><p>COMET的每一个阶段都对应USDP的一个工作流</p>
+<p>需求，分析与设计建模</p>
+<ul>
+<li>用例建模</li>
+<li>陈述非功能性需求</li>
+</ul>
+<p>分析建模的活动</p>
+<ul>
+<li>重点在于问题理解，标识问题域的对象与对象间传递的信息</li>
+</ul>
+<h6 id="设计建模的活动"><a href="#设计建模的活动" class="headerlink" title="设计建模的活动"></a>设计建模的活动</h6><ul>
+<li>集成对象通信模型</li>
+<li>子系统结构与接口的决策</li>
+<li>类接口的决策</li>
+<li>消息特性的决策</li>
 </ul>
 
             </div>
@@ -293,7 +434,7 @@
                 <ul class="post-tags-box">
                     
                         <li class="tag-item">
-                            <a href="../../../../tags/cs-net/">#cs-net</a>&nbsp;
+                            <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -305,13 +446,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="../../04/%E6%95%B0%E7%94%B5/"
+                               href="../web%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">数电</span>
+                                <span class="post-nav-title-item">web技术学习笔记</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -321,10 +462,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="../../02/blog%E5%BB%BA%E7%AB%8B%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95/"
+                               href="../../04/%E6%95%B0%E7%94%B5/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">建站踩坑录</span>
+                                <span class="post-nav-title-item">数电</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -343,7 +484,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSE206-Computer-Networks-Assignment-1"><span class="nav-number">1.</span> <span class="nav-text">SSE206 Computer Networks Assignment #1</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%BC%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">导论</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%9A%E8%A7%86%E5%9B%BE%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.1.</span> <span class="nav-text">多视图建模</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ch1%EF%BC%9A%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B%EF%BC%88%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">ch1：软件生存周期模型（第三章）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%87%A0%E7%A7%8D%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">几种开发模型：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">软件测试：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8%E6%97%A5"><span class="nav-number"></span> <span class="nav-text">3.8日</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">0.1.</span> <span class="nav-text">软件模式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7"><span class="nav-number">0.2.</span> <span class="nav-text">软件质量属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">0.3.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">软件体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.1.</span> <span class="nav-text">设计建模</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A2%9E%E9%87%8F%E8%BD%AF%E4%BB%B6%E9%9B%86%E6%88%90"><span class="nav-number">1.2.</span> <span class="nav-text">增量软件集成</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#COMET-USDP"><span class="nav-number">1.3.</span> <span class="nav-text">COMET   USDP</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E6%B4%BB%E5%8A%A8"><span class="nav-number">1.4.</span> <span class="nav-text">设计建模的活动</span></a></li></ol></li></ol>
     </div>
 </div>
 
