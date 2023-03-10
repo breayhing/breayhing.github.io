@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="CS笔记 , 代码">
+    <meta name="description" content="目前在更进的一个小网站">
+    <meta name="author" content="breayhing / SIRI">
+    
+    <title>
+        
+            数据结构与算法 PART 2 |
+        
+        Breayhing的博客
+    </title>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+    <link rel="shortcut icon" href="../../../../images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/head.png","font_size":"18px","font_family":"STKaiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Ubiquitous assimilation || 做一条咸鱼，但是没事扑腾两下","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"obsdian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="../../../../images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Breayhing的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../index.html"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../archives"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="http://sirohune.site/"
+                            >
+                                友情链接
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../index.html">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../archives">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="http://sirohune.site/">友情链接</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">数据结构与算法 PART 2</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="../../../../images/head.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">breayhing / SIRI</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-03-10 17:03:10</span>
+        <span class="mobile">2023-03-10 17:03</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-03-10 17:04:43</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>15.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>70 分钟</span>
+        </span>
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="数据结构与算法：PART-2"><a href="#数据结构与算法：PART-2" class="headerlink" title="数据结构与算法：PART 2"></a>数据结构与算法：PART 2</h1><h3 id="搜索与图论"><a href="#搜索与图论" class="headerlink" title="搜索与图论"></a>搜索与图论</h3><p><strong>查找中静态与动态差异仅在于是否可以动态增删元素</strong></p>
+<p><strong>动态查找在几何计算上应用广泛</strong></p>
+<h6 id="搜索种类："><a href="#搜索种类：" class="headerlink" title="搜索种类："></a>搜索种类：</h6><p>无信息搜索：</p>
+<p>1.DFS：递归结束条件的选择+状态标记+递归后的恢复(<strong>也可以用栈来搭建出来</strong>)<br>2.BFS：模拟队列 q[N], d[N] 使用d数组标记状态<br>3.搜索：解空间的搜索往往需要dfs+剪枝，bfs用来找最短路<br>4.树和图的存储：邻接表 h[N], e[N], ne[N], idx<br>5.树和图的遍历：遍历不用像搜索解空间一样递归后恢复，只用遍历一次即可</p>
+<p>有信息搜索：</p>
+<p>A搜索算法</p>
+<h5 id="建立搜索模型："><a href="#建立搜索模型：" class="headerlink" title="建立搜索模型："></a>建立搜索模型：</h5><img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221128173749761.png"
+                      alt="image-20221128173749761" style="zoom: 33%;" 
+                >
+
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221128174023444.png"
+                      alt="image-20221128174023444" style="zoom:33%;" 
+                >
+
+<h4 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h4><h6 id="优势：可以获取子树的大小"><a href="#优势：可以获取子树的大小" class="headerlink" title="优势：可以获取子树的大小"></a>优势：可以获取子树的大小</h6><h6 id="核心：顺序"><a href="#核心：顺序" class="headerlink" title="核心：顺序"></a>核心：顺序</h6><p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/844/" >842. 排列数字 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p>DFS人称暴力搜索，对应的是一个多叉树的形式，<strong>DFS的搜索顺序和前序遍历其实一样</strong>，但是<strong>实际上存储结构只会存一条路径，回溯的时候就会消失，不需要真正建立树，但是一定要注意恢复现场</strong></p>
+<p>![深度优先遍历.png](D:\typora note\55289_0cd4222d73-深度优先遍历.png)</p>
+<p>举例：全排列做法，使用回溯（还可以使用剪枝）</p>
+<h6 id="全排列做法："><a href="#全排列做法：" class="headerlink" title="全排列做法："></a>全排列做法：</h6><p>时间复杂度为 O(n*n!)。</p>
+<p>空间复杂度为 O(n)。</p>
+<p>算法：</p>
+<ol>
+<li>用 path 数组保存排列，当排列的长度为 n 时，是一种方案，输出。\</li>
+<li>用 state 数组表示数字是否用过。当 state[i] 为 1 时：i 已经被用过，state[i] 为 0 时，i 没有被用过。</li>
+<li>dfs(i) 表示的含义是：在 path[i] 处填写数字，然后递归的在下一个位置填写数字。</li>
+<li>回溯：第 i 个位置填写某个数字的所有情况都遍历后， 第 i 个位置填写下一个数字。</li>
+</ol>
+<pre><code class="c++">#include&lt;iostream&gt;
+using namespace std;
+const int N = 10;
+int path[N];//保存序列
+int state[N];//数字是否被用过
+int n;
+void dfs(int u)
+&#123;
+    if(u &gt; n)//数字填完了，输出
+    &#123;
+        for(int i = 1; i &lt;= n; i++)//输出方案
+            cout &lt;&lt; path[i] &lt;&lt; &quot; &quot;;
+        cout &lt;&lt; endl;
+    &#125;
+
+    for(int i = 1; i &lt;= n; i++)//这里就是选择如何遍历，想反方向就是逆序遍历了
+        //空位上可以选择的数字为:1 ~ n
+    &#123;//关键在这里
+        /*
+        比如123
+        回溯到1，state[2]=0,2又可以用，但循环走到了2，到3了，因此是132
+        */
+        if(!state[i])//如果数字 i 没有被用过
+        &#123;
+            path[u] = i;//放入空位
+            state[i] = 1;//数字被用，修改状态
+            dfs(u + 1);//填下一个位
+            state[i] = 0;//回溯，取出 i
+        &#125;
+    &#125;
+&#125;
+
+int main()
+&#123;
+
+    cin &gt;&gt; n;
+    dfs(1);//从1开始
+    &#125;
+</code></pre>
+<h6 id="DFS另一种应用：皇后位置"><a href="#DFS另一种应用：皇后位置" class="headerlink" title="DFS另一种应用：皇后位置"></a>DFS另一种应用：皇后位置</h6><p>c++直接完整版本代码：（LeetCode 版本）</p>
+<pre><code class="c++">class Solution &#123;
+private:
+vector&lt;vector&lt;string&gt;&gt; result;
+// n 为输入的棋盘大小
+// row 是当前递归到棋牌的第几行了
+void backtracking(int n, int row, vector&lt;string&gt;&amp; chessboard) &#123;
+    if (row == n) &#123;//回溯到最后一行，说明满足情况了
+        result.push_back(chessboard);
+        return;
+    &#125;
+    for (int col = 0; col &lt; n; col++) &#123;
+        if (isValid(row, col, chessboard, n)) &#123; // 验证合法就可以放
+            chessboard[row][col] = &#39;Q&#39;; // 放置皇后
+            backtracking(n, row + 1, chessboard);//再进一行进行检验
+            chessboard[row][col] = &#39;.&#39;; // 回溯，撤销皇后
+        &#125;
+    &#125;
+&#125;
+bool isValid(int row, int col, vector&lt;string&gt;&amp; chessboard, int n) &#123;
+    int count = 0;
+    // 检查列
+    for (int i = 0; i &lt; row; i++) &#123; // 这是一个剪枝
+        if (chessboard[i][col] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    // 检查 45度角是否有皇后
+    for (int i = row - 1, j = col - 1; i &gt;=0 &amp;&amp; j &gt;= 0; i--, j--) &#123;//另一个剪支
+        if (chessboard[i][j] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    // 检查 135度角是否有皇后
+    for(int i = row - 1, j = col + 1; i &gt;= 0 &amp;&amp; j &lt; n; i--, j++) &#123;
+        if (chessboard[i][j] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    return true;
+&#125;
+public:
+    vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) &#123;
+        result.clear();
+        std::vector&lt;std::string&gt; chessboard(n, std::string(n, &#39;.&#39;));
+        backtracking(n, 0, chessboard);//注意这里是从0开始的，所以最后到n，实际上以及对n层进行了判断
+        return result;
+    &#125;
+&#125;;
+
+/*总结操作流程：
+类似二叉树，对每个节点进行遍历，实际复杂度是n^2，从开头一直向下延申，可满足情况进行返回
+</code></pre>
+<p>c++数组版本皇后问题:<strong>老子自己写的！（双手叉腰）</strong></p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int maxn=9;
+int solu[maxn]=&#123;0&#125;;
+int qn[maxn]=&#123;0&#125;;
+bool isValid(int posj,int posi)//最后那个pos也就是棋子的坐标
+&#123;
+    //posi=i,posj=qn[i]
+    if(posi==0)return true;
+    for(int i=0;i&lt;posi;i++)
+    &#123;
+        if(qn[i]==posj)return false;//相同的列判断
+    &#125;
+    for(int i=posi-1;i&gt;=0;i--)//45判断
+    &#123;
+        if(posi-i==posj-qn[i])return false;
+    &#125;
+    for(int i=posi-1;i&gt;=0;i--)//135
+    &#123;
+        if(posi-i==qn[i]-posj)return false;
+    &#125;
+    return true;
+&#125;
+void backtracing(int n,int row)
+&#123;
+    if(row==n)&#123;//终止了，找到了其中一种解决方案
+        cout&lt;&lt;&quot;bottom reached\n&quot;;
+        cout&lt;&lt;&quot;solution:\n&quot;;
+        for(int  i=0;i&lt;n;i++)
+        &#123;
+            cout&lt;&lt;&quot;row &quot;&lt;&lt;i+1&lt;&lt;&quot; equals to &quot;&lt;&lt;qn[i]+1&lt;&lt;&quot; \n&quot;;
+        &#125;
+        cout&lt;&lt;&quot;go find other solution\n\n&quot;;
+        return;
+    &#125;
+    else&#123;
+        for(int i=0;i&lt;n;i++)//注意这里的传参
+        &#123;
+            qn[row]=i;//row，行固定，列用变量i对每一行进行遍历，如果满足之前条件进入下一行
+            if(isValid(qn[row],row))//该行该位置能否放
+            &#123;
+
+                backtracing(n,row+1);//可以就继续往下走
+
+            &#125;
+        &#125;
+    &#125;
+
+&#125;
+
+int main()
+&#123;
+    int n;
+
+    cin&gt;&gt;n;
+    backtracing(n,0);
+&#125;
+</code></pre>
+<h4 id="BFS（使用二维数组）"><a href="#BFS（使用二维数组）" class="headerlink" title="BFS（使用二维数组）"></a>BFS（使用二维数组）</h4><p>原因：宽搜的性质：辐射性向外搜索（想想一层一层向外扩张的信号）</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/846/" >844. 走迷宫 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<h6 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h6><ol>
+<li>dp问题和最短路问题其实是互通的</li>
+<li><strong>边的权重都是1的时候才可以使用BFS求最短路，一般都用最短路</strong></li>
+<li>dp问题不能用最短路算法（最短路时间一般都高)</li>
+<li>第一次搜到的点才是最短的点，之后的都不是</li>
+</ol>
+<p><strong>不同于深搜，宽搜一般有一个框架</strong></p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\typora note\55289_2796990173-微信截图_20210220145528.png"
+                      alt="微信截图_20210220145528.png" style="zoom:50%;" 
+                >
+
+<h6 id="广搜的框架"><a href="#广搜的框架" class="headerlink" title="广搜的框架"></a>广搜的框架</h6><ol>
+<li>初始状态放到队列中</li>
+<li>写一个while循环，只要队列不空，在循环内每一次拿出队头，扩展队头</li>
+</ol>
+<p>往上下左右扩展的技巧：<strong>使用向量来表示</strong></p>
+<h6 id="代码（如该道题）"><a href="#代码（如该道题）" class="headerlink" title="代码（如该道题）"></a>代码（如该道题）</h6><ul>
+<li>void bfs(int a, int b): 广度优遍历函数。输入的是起点坐标。</li>
+<li>queue<PII> q;:用来存储每一步走到的点。</li>
+<li>while(!q.empty())循环：循环依次取出同一步数能走到的点，再往前走一步。</li>
+<li>int dx[4] &#x3D; {0, 1, 0, -1}, dy[4] &#x3D; {-1, 0, 1, 0};:一个点往下一步走得时候，可以往上下左右四方向走。</li>
+</ul>
+<pre><code class="c++">#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;queue&gt;
+using namespace std;
+typedef pair&lt;int, int&gt; PII;
+const int N = 110;
+int g[N][N];//存储地图
+int f[N][N];//存储距离
+int n, m;
+void bfs(int a, int b)//广度优先遍历
+&#123;
+    queue&lt;PII&gt; q;
+    q.push(&#123;a, b&#125;);//压入队列
+    while(!q.empty())
+    &#123;
+        PII start = q.front();
+        q.pop();
+        g[start.first][start.second] = 1;
+        int dx[4] = &#123;0, 1, 0, -1&#125;, dy[4] = &#123;-1, 0, 1, 0&#125;;
+        for(int i = 0; i &lt; 4; i++)//往四个方向走
+        &#123;
+            int x = start.first + dx[i], y = start.second + dy[i];//走出一步之后
+            if(g[x][y] == 0)//如果还没有走过
+            &#123;
+                g[x][y] = 1;//该点进行更新,因为广搜中第一次遇到的就是最短路径
+                f[x][y] = f[start.first][start.second] + 1;//从当前点走过去，则距离等于当前点的距离+1.
+                q.push(&#123;x, y&#125;);//再入栈一个
+            &#125;
+
+        &#125;
+    &#125;
+    cout &lt;&lt; f[n][m];
+&#125;
+
+int main()
+&#123;
+    memset(g, 1, sizeof(g));
+    cin &gt;&gt; n &gt;&gt;m;
+    for(int i = 1; i &lt;= n; i++)//对地图进行一个更新
+    &#123;
+        for(int j = 1; j &lt;= m; j++)
+        &#123;
+            cin &gt;&gt; g[i][j];
+        &#125;
+    &#125;
+    bfs(1,1);//对起点进行bfs
+
+&#125;
+</code></pre>
+<h4 id="树和图的DFS，BFS"><a href="#树和图的DFS，BFS" class="headerlink" title="树和图的DFS，BFS"></a>树和图的DFS，BFS</h4><p>树和图的DFS，BFS就是特殊的搜索（因为有那个环）</p>
+<p><strong>树和图的遍历时间复杂度都是o（n+m）</strong></p>
+<h5 id="树与图的存储选择"><a href="#树与图的存储选择" class="headerlink" title="树与图的存储选择"></a>树与图的存储选择</h5><p>稠密图：邻接矩阵</p>
+<p>稀疏图：邻接表</p>
+<p>无向图实际上就是有向图进行一个对称</p>
+<p>有向图的存储方式</p>
+<h6 id="邻接矩阵："><a href="#邻接矩阵：" class="headerlink" title="邻接矩阵："></a>邻接矩阵：</h6><p>同BFS，开二维数组存就完事了</p>
+<p>优化：使用vector向量</p>
+<pre><code class="c++"> int V,num;
+    cin&gt;&gt;V&gt;&gt;num;//V边数量
+    vector&lt;vector&lt;int&gt;&gt; graph(V);
+    vector&lt;vector&lt;int&gt;&gt; price(V);//记录权值
+    for(int i=0;i&lt;V;i++)
+    &#123;
+        graph[i].resize(V);
+        price[i].resize(V);
+    &#125;
+</code></pre>
+<h6 id="邻接表："><a href="#邻接表：" class="headerlink" title="邻接表："></a>邻接表：</h6><p>使用数组模拟链表（还是注意idx的作用类似于分配器）,有多少个点开多少个单链表</p>
+<pre><code class="c++">//这个的不好的地方是不好统计哪些地方已经走过和
+
+#include&lt;cstring&gt;//memset位置
+// 对于每个点k，开一个单链表，存储k所有可以走到的点。h[k]存储这个单链表的头结点
+int h[N], e[N], ne[N], idx;
+//h存链表头，e存每一个节点的值，ne存每一个节点的下一个节点的地址，与单链表的不同就是把head换成h数组
+
+// 添加一条边a-&gt;b
+void add(int a, int b)
+&#123;
+    e[idx] = b;
+    ne[idx] = h[a];
+    h[a] = idx  ;
+    idx++;//是你熟悉的头插
+&#125;
+void add_to_tail(int x)//尾插
+&#123;
+    e[idx]=x;
+    if(head==-1//当是第一次插入时特殊处理
+    &#123;
+        ne[idx]=head;
+        head=idx;
+        idx++;
+        return;
+    &#125;
+    int i=head;
+    if(head!=-1)while(ne[i]!=-1)i=ne[i];//最后ne[i]=-1
+    ne[idx]=-1;
+    ne[i]=idx;
+    idx++;
+&#125;
+void dele(int a,int b)
+&#123;
+        if(e[h[a]]==b)h[a]=ne[h[a]];//如果在第一个元素的时候的操作方法
+       else	for(int i=h[a];ne[i]!=-1;i=ne[i])
+       &#123;
+           if(e[ne[i]]==b)//这里关系是
+           &#123;
+              ne[i]=ne[ne[i]];
+          &#125;
+      &#125;
+    
+&#125;
+bool find(int a,int b)
+&#123;
+    for(int i=h[a],i!=-1;i=ne[i])
+    &#123;
+        if(e[i]==b)return true;
+    &#125;
+    return false;
+&#125;
+
+// 初始化
+idx = 0;
+memset(h, -1, sizeof h);//单链表的n个头节点全部变成-1
+</code></pre>
+<p>另一种选择：使用vector+list来构建（很方便）</p>
+<h5 id="树图DFS"><a href="#树图DFS" class="headerlink" title="树图DFS"></a>树图DFS</h5><h6 id="模板："><a href="#模板：" class="headerlink" title="模板："></a>模板：</h6><pre><code class="c++">这个模板同样是使用邻接表来存储的
+
+bool st[N];//同其它，st数组在一开始开好，用来表示该节点是否被遍历过
+int dfs(int u)
+&#123;
+    st[u] = true; // st[u] 表示点u已经被遍历过
+
+    这里是要对DFS进行的操作部分
+    
+    for (int i = h[u]; i != -1; i = ne[i])
+    &#123;
+        int j = e[i];
+        if (!st[j]) dfs(j);//递归进行向下遍历
+    &#125;
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/848/" >846. 树的重心 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p>树的重心可能不唯一，但是树是唯一的</p>
+<p>该题解法：<strong>遍历删掉所有点之后连通块的最大值，之后在一堆最大值里面对比寻找出来最小的就行</strong></p>
+<p>发现：获取了子树的大小也就获得了剩余树的大小（即全部节点数量减去子树的size就好）</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\typora note\屏幕截图 2022-11-28 101426.png"
+                      alt="屏幕截图 2022-11-28 101426" style="zoom:33%;" 
+                >
+
+<p>本题的本质是树的dfs， 每次dfs可以确定以u为重心的最大连通块的节点数，并且更新一下ans。</p>
+<p>也就是说，<strong>dfs并不直接返回答案，而是在每次更新中迭代一次答案。</strong></p>
+<p>这样的套路会经常用到，在 树的dfs 题目中</p>
+<p>答案：</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cstring&gt;
+
+using namespace std;
+
+const int N = 1e5 + 10; //数据范围是10的5次方
+const int M = 2 * N; //以有向图的格式存储无向图，所以每个节点至多对应2n-2条边
+
+int h[N]; //邻接表存储树，有n个节点，所以需要n个队列头节点
+int e[M]; //存储元素
+int ne[M]; //存储列表的next值
+int idx; //单链表指针
+int n; //题目所给的输入，n个节点
+int ans = N; //在最大连通块中寻找最小的那一个
+
+bool st[N]; //记录节点是否被访问过，访问过则标记为true
+
+//a所对应的单链表中插入b  a作为根 
+void add(int a, int b) &#123;
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+&#125;
+//返回以u为根的子树中节点的个数，包括u节点
+int dfs(int u) &#123;
+    int res = 0; //存储 删掉某个节点之后，最大的连通子图节点数
+    st[u] = true; //标记访问过u节点
+    int sum = 1; //存储 以u为根的树 的节点数, 包括u，如图中的4号节点
+    //访问u的每个子节点
+    for (int i = h[u]; i != -1; i = ne[i]) &#123;//链表的遍历
+        int j = e[i];
+        //因为每个节点的编号都是不一样的，所以 用编号为下标 来标记是否被访问过
+        if (!st[j]) &#123;// u节点的单棵子树节点数 如图中的size值
+            int s = dfs(j);  //获取j为根的子树中节点个数
+            res = max(res, s); // 记录最大联通子图的节点数
+            sum += s; //以j为根的树 的节点数，也就是1+s
+        &#125;//每一次这样执行一遍就进行了一个节点的更新
+    &#125;
+    //n-sum 如图中的n-size值；
+    res = max(res, n - sum); // 选择u节点为重心，最大的 连通子图节点数
+    ans = min(res, ans); //遍历过的假设重心中，最小的最大联通子图的 节点数
+    return sum;//返回子树的节点个数
+&#125;
+
+int main() &#123;
+    memset(h, -1, sizeof h); //初始化h数组 -1表示尾节点
+    cin &gt;&gt; n; //表示树的结点数
+
+    // 题目接下来会输入，n-1行数据，
+    // 树中是不存在环的，对于有n个节点的树，必定是n-1条边
+    for (int i = 0; i &lt; n - 1; i++) &#123;
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        add(a, b), add(b, a); //无向图
+    &#125;
+
+    dfs(1); //可以任意选定一个节点开始 u&lt;=n
+
+    cout &lt;&lt; ans &lt;&lt; endl;
+
+    return 0;
+&#125;
+</code></pre>
+<h5 id="树图BFS"><a href="#树图BFS" class="headerlink" title="树图BFS"></a>树图BFS</h5><p>思想：从1开始不断扩展一层节点，然后不断向下辐射</p>
+<p><strong>自闭环在dp问题中及逆行讨论</strong></p>
+<h6 id="模板：-1"><a href="#模板：-1" class="headerlink" title="模板："></a>模板：</h6><ol>
+<li>初始状态放到队列中</li>
+<li>写一个while循环，只要队列不空，在循环内每一次拿出队头，扩展队头的所有邻点</li>
+<li>只考虑第一次遍历，只要没有被遍历过，将x入队</li>
+<li>更新路径距离</li>
+</ol>
+<pre><code class="c++">//使用邻接表进行存储稀疏图
+int ne[N],e[N],h[N];
+
+queue&lt;int&gt; q;
+bool st[N];//同其它，st数组在一开始开好，用来表示该节点是否被遍历过
+st[1] = true; // 表示1号点已经被遍历过
+q.push(1);//对1进行入队
+while (q.size())
+&#123;
+    int t = q.front();//t是队头
+    q.pop();//出队
+
+    for (int i = h[t]; i != -1; i = ne[i])//这里对该头能到达的所有点进行一次访问
+    &#123;
+        int j = e[i];//j也就是对应的节点的值
+        if (!st[j])//只要没有访问过
+        &#123;
+            该干嘛干嘛，进行需要的操作
+            st[j] = true; // 表示点j已经被遍历过
+            q.push(j);//入队
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/849/" >847. 图中点的层次 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p>该题答案：</p>
+<pre><code class="c++">#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+const int N=1e5+10;
+
+int h[N], e[N], idx, ne[N];
+int d[N]; //存储每个节点离起点的距离  d[1]=0
+int n, m; //n个节点m条边
+int q[N]; //存储层次遍历序列 0号节点是编号为1的节点
+
+void add(int a, int b)
+&#123;
+    e[idx]=b,ne[idx]=h[a],h[a]=idx++;
+&#125;
+
+int bfs()
+&#123;
+    int hh=0,tt=0;
+
+    q[0]=1; //0号节点是编号为1的节点
+
+    memset(d,-1,sizeof d);
+
+    d[1]=0; //存储每个节点离起点的距离
+
+    //当我们的队列不为空时
+    while(hh&lt;=tt)//不同的是这里用了数组模拟队列，一个道理
+    &#123;
+        //取出队列头部节点
+        int t=q[hh++];
+
+        //遍历t节点的每一个邻边
+        for(int i=h[t];i!=-1;i=ne[i])
+        &#123;
+            int j=e[i];
+            //如果j没有被扩展过
+            if(d[j]==-1)
+            &#123;
+                d[j]=d[t]+1; //d[j]存储j节点离起点的距离，并标记为访问过
+                q[++tt] = j; //把j结点 压入队列
+            &#125;
+        &#125;
+    &#125;
+
+    return d[n];//因为题目要求第一个点到第n个点就ok
+&#125;
+
+int main()
+&#123;
+    cin&gt;&gt;n&gt;&gt;m;
+    memset(h,-1,sizeof h);
+    for(int i=0;i&lt;m;i++)
+    &#123;
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        add(a,b);
+    &#125;
+
+    cout&lt;&lt;bfs()&lt;&lt;endl;
+&#125;
+</code></pre>
+<p>一致代价BFS：改进版本BFS</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221128180007725.png"
+                      alt="image-20221128180007725" style="zoom:33%;" 
+                >
+
+<h4 id="拓扑排序：BFS的一种应用（AOV网，流程能否正确执行）"><a href="#拓扑排序：BFS的一种应用（AOV网，流程能否正确执行）" class="headerlink" title="拓扑排序：BFS的一种应用（AOV网，流程能否正确执行）"></a>拓扑排序：BFS的一种应用（AOV网，流程能否正确执行）</h4><p><strong>拓扑、dfs、并查集都可以图中判断有没有环， floyd可以找最小环</strong></p>
+<h6 id="仅针对有向图，无向图没得拓扑"><a href="#仅针对有向图，无向图没得拓扑" class="headerlink" title="仅针对有向图，无向图没得拓扑"></a><strong>仅针对有向图，无向图没得拓扑</strong></h6><p>定义：每条边都是起点在终点的前面，即所有的边都是从前指向后面的</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221128234717957.png"
+                      alt="image-20221128234717957" style="zoom:33%;" 
+                >
+
+<p>这种算一个拓扑</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221128234854668.png"
+                      alt="image-20221128234854668" style="zoom:33%;" 
+                >
+
+<p>这种就不算了（<strong>有一个环，只要有环就一定木大</strong>）</p>
+<p>可以证明：<strong>有向无环一定可以整成一个拓扑图</strong></p>
+<h6 id="如何进行一个求"><a href="#如何进行一个求" class="headerlink" title="如何进行一个求"></a>如何进行一个求</h6><p>一个有向图有入度和出度，由所有都是从前指向后，则所有入度为0的点都可以排在当前最前面的位置</p>
+<ul>
+<li><strong>一个无环图一定至少存在一个入度为0的点</strong></li>
+<li>有向无环的top序不唯一</li>
+</ul>
+<h6 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h6><ol>
+<li>所有入度为0的点进行入队</li>
+<li>进行一个BFS，每一次出队一个队头，然后找出所有出队列这个点发出的边，删除边，同时边的另一侧的点的入度 -1。</li>
+<li>如果d[j]&#x3D;&#x3D;0,说明j之前的都排序好了，入队j就完事了</li>
+<li>如果所有点都进过队列，则可以拓扑排序，输出所有顶点。否则输出-1，代表不可以进行拓扑排序。</li>
+</ol>
+<h6 id="模板：-2"><a href="#模板：-2" class="headerlink" title="模板："></a>模板：</h6><pre><code class="c++">bool topsort()
+&#123;
+    int hh = 0, tt = -1;
+
+    // d[i] 存储点i的入度
+    for (int i = 1; i &lt;= n; i ++ )
+        if (!d[i])
+            q[ ++ tt] = i;
+
+    while (hh &lt;= tt)
+    &#123;
+        int t = q[hh ++ ];
+
+        for (int i = h[t]; i != -1; i = ne[i])
+        &#123;
+            int j = e[i];
+            if (-- d[j] == 0)
+                q[ ++ tt] = j;
+        &#125;
+    &#125;
+
+    // 如果所有点都入队了，说明存在拓扑序列；否则不存在拓扑序列。
+    return tt == n - 1;
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/solution/850/1/" >848. 有向图的拓扑序列 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/103954/" >AcWing 848. $\color{green}{拓扑排序–思路介绍+图解模拟+详细代码注释 }$ - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 100010;
+int e[N], ne[N], idx;//邻接表存储图
+int h[N];//邻接表表头
+int q[N], hh = 0, tt = -1;//队列保存入度为0的点，也就是能够输出的点，
+int n, m;//保存图的点数和边数
+int d[N];////保存各个点的入度
+
+void add(int a, int b)&#123;
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;//邻接表的创建
+&#125;
+
+void topsort()&#123;
+    for(int i = 1; i &lt;= n; i++)&#123;//遍历一遍顶点的入度。
+        if(d[i] == 0)//如果入度为 0, 则可以入队列
+            q[++tt] = i;
+    &#125;//tt头，hh尾
+    while(tt &gt;= hh)&#123;//循环处理队列中点的
+        int a = q[hh++];//取出队头元素
+        for(int i = h[a]; i != -1; i = ne[i])&#123;//循环删除 a 发出的边
+            int b = e[i];//a 有一条边指向b
+            d[b]--;//删除边后，b的入度减1
+            if(d[b] == 0)//如果b的入度减为 0,则 b 可以输出，入队列
+                q[++tt] = b;
+        &#125;
+    &#125;
+    if(tt == n - 1)&#123;//进去了n个点
+        //如果队列中的点的个数与图中点的个数相同，则可以进行拓扑排序
+        for(int i = 0; i &lt; n; i++)&#123;//队列中保存了所有入度为0的点，依次输出
+            cout &lt;&lt; q[i] &lt;&lt; &quot; &quot;;
+        &#125;
+    &#125;
+    else//如果队列中的点的个数与图中点的个数不相同，则不可以进行拓扑排序
+        cout &lt;&lt; -1;//输出-1，代表错误
+&#125;
+
+
+int main()&#123;
+    cin &gt;&gt; n &gt;&gt; m;//保存点的个数和边的个数
+    memset(h, -1, sizeof h);//初始化邻接矩阵
+    while (m -- )&#123;//依次读入边
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        d[b]++;//顶点b的入度+1
+        add(a, b);//添加到邻接矩阵
+    &#125;
+    topsort();//进行拓扑排序
+    return 0;
+&#125;
+</code></pre>
+<h4 id="动态查找：二叉搜索树"><a href="#动态查找：二叉搜索树" class="headerlink" title="动态查找：二叉搜索树"></a>动态查找：二叉搜索树</h4><p>构建树：<strong>每个左孩子都比双亲小，每个右孩子都比双亲大</strong></p>
+<h6 id="插入节点："><a href="#插入节点：" class="headerlink" title="插入节点："></a>插入节点：</h6><h5 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h5><h6 id="叶子节点"><a href="#叶子节点" class="headerlink" title="叶子节点"></a>叶子节点</h6><p>直接删除</p>
+<h6 id="节点p仅有一棵子树："><a href="#节点p仅有一棵子树：" class="headerlink" title="节点p仅有一棵子树："></a>节点p仅有一棵子树：</h6><p>• 直接用p的左子树(或右子树)取代p的位置而成为f的一棵子树。即原来p是f的左子树，则p的子树成为f的左子树；原来p是f的右子树，则p的子树成为f的右子树</p>
+<p>即类似链表的删除操作（懂得都懂）</p>
+<h6 id="节点p既有左子树又有右子树："><a href="#节点p既有左子树又有右子树：" class="headerlink" title="节点p既有左子树又有右子树："></a>节点p既有左子树又有右子树：</h6><pre><code class="c++">#include&lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+const int M=1024;
+int tree[M]=&#123;0&#125;;
+int char_to_int(char a)
+&#123;
+    return (int)(a-&#39;0&#39;);
+&#125;
+void add_tree(int tree[],string a,int str_pos,int tree_pos,int judge)
+&#123;
+    int length=a.size();
+    if(str_pos&gt;length)return;
+    int num=char_to_int(a[str_pos]);
+    if(tree[tree_pos]==-1)//新节点插入
+    &#123;
+        tree[tree_pos]=num;
+        judge=0;
+        return;
+    &#125;
+    else if(num&gt;=tree[tree_pos])tree_pos=2*tree_pos+1;//大，向右边搜索
+    else tree_pos=2*tree_pos;//小,向左边搜索
+    add_tree(tree,a,str_pos,tree_pos,judge);
+&#125;
+int main()
+&#123;
+    int n;
+    cin&gt;&gt;n;
+    string ans;
+    cin&gt;&gt;ans;//初始化的输入
+    int total=ans.size();
+    for(int i=1;i&lt;=M;i++)
+    &#123;
+        tree[i]=-1;//-1表示是空指针
+    &#125;
+    tree[1]=char_to_int(ans[0]);
+    for(int i=1;i&lt;total;i++)//开始对树进行节点插入
+    &#123;
+        add_tree(tree,ans,i,1,1);
+    &#125;
+//    cout&lt;&lt;&quot;origin tree:  &quot;;
+//    for(int i=1;i&lt;=M;i++) &#123;
+//        if (tree[i] != -1)cout &lt;&lt; tree[i] &lt;&lt; &#39; &#39;;
+//    &#125;
+    cout&lt;&lt;endl;
+    int str_com[M];
+    string str_a;
+    for(int time=0;time&lt;n;time++)//循环多少次
+    &#123;
+        if(time==6)break;
+        for(int i=1;i&lt;=M;i++)
+        &#123;
+            str_com[i]=-1;//进行初始化
+        &#125;
+        cin&gt;&gt;str_a;//新的输入
+        str_com[1]=char_to_int(str_a[0]);
+        for(int i=1;i&lt;total;i++)//开始对树进行节点插入
+        &#123;
+            add_tree(str_com,str_a,i,1,1);
+        &#125;
+        int judge=1;
+//        cout&lt;&lt;&quot;new tree:  &quot;;
+        for(int i=1;i&lt;=M;i++) &#123;
+            if(str_com[i]!=tree[i])
+            &#123;
+                cout&lt;&lt;&quot;NO\n&quot;;
+                judge=0;
+                break;
+            &#125;
+//            if (str_com[i] != -1)cout &lt;&lt; str_com[i] &lt;&lt; &#39; &#39;;
+        &#125;
+        if(judge==1)cout&lt;&lt;&quot;YES\n&quot;;
+    &#125;
+    int time;
+    cin&gt;&gt;time;
+    return 0;
+&#125;
+</code></pre>
+<h5 id="动态查找：kd树（图形相关的东西会涉及，很重要的一种数据结构）🙏"><a href="#动态查找：kd树（图形相关的东西会涉及，很重要的一种数据结构）🙏" class="headerlink" title="动态查找：kd树（图形相关的东西会涉及，很重要的一种数据结构）🙏"></a>动态查找：kd树（图形相关的东西会涉及，很重要的一种数据结构）🙏</h5><p>空间划分树：</p>
+<ul>
+<li>网格</li>
+<li>四叉树</li>
+<li>二维树</li>
+<li>二叉空间分割树</li>
+</ul>
+<p>二维树：最近邻查找</p>
+<p><strong>实际就使用了剪枝（即切除不可能的子树）</strong></p>
+<h4 id="最短路问题"><a href="#最短路问题" class="headerlink" title="最短路问题"></a>最短路问题</h4><h5 id="朴素Dijkstra算法-和堆有关-（面试也有）"><a href="#朴素Dijkstra算法-和堆有关-（面试也有）" class="headerlink" title="朴素Dijkstra算法(和堆有关)（面试也有）"></a>朴素Dijkstra算法(和堆有关)（面试也有）</h5><p>书的作者写的算法通常都很长</p>
+<p><strong>与bf算法最大区别：所有边只松弛一次（bf每条边多次）（这里很有可能数据结构考）</strong></p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221204102009012.png"
+                      alt="image-20221204102009012" style="zoom: 50%;" 
+                >
+
+<p>堆优化：Dijkstra</p>
+<h6 id="应用场景：（什么时候使用该算法）"><a href="#应用场景：（什么时候使用该算法）" class="headerlink" title="应用场景：（什么时候使用该算法）"></a>应用场景：（什么时候使用该算法）</h6><ul>
+<li>计算机网络中网络传输问题（参考ele实验室路由器）与协议</li>
+<li>迷宫问题（往下看图形化篇章）</li>
+</ul>
+<p>核心思想：贪心</p>
+<p><strong>迪杰斯特拉算法适用于求正权有向图中，源点到其余各个节点的最短路径。注意：图中可以有环，但不能有负权边。</strong></p>
+<h6 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h6><p>s:当前已经确定最短距离的点</p>
+<ol>
+<li>初始化距离（只有起点的距离是确定的）</li>
+<li>开始循环迭代n次，找到不在s中的距离最近的点</li>
+<li>用 t来更新其它所有点的距离（就能更新起点到每个点最短距离）</li>
+</ol>
+<h6 id="模板：（朴素版本的Dijkstra）复杂度：n-2"><a href="#模板：（朴素版本的Dijkstra）复杂度：n-2" class="headerlink" title="模板：（朴素版本的Dijkstra）复杂度：n^2"></a>模板：（朴素版本的Dijkstra）复杂度：n^2</h6><p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/851/" >849. Dijkstra求最短路 I - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/38318/" >AcWing 849. Dijkstra求最短路 I：图解 详细代码（图解） - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>注意这里读入都是从1开始</strong></p>
+<p><strong>dist注意初始化为+∞</strong></p>
+<pre><code class="c++">int g[N][N];  // 存储每条边
+int dist[N];  // 存储1号点到每个点的最短距离
+bool st[N];   // 存储每个点的最短路是否已经确定
+const int INF=0x3f;//用于标注是无穷点
+// 求1号点到n号点的最短路，如果不存在则返回-1
+int dijkstra()
+&#123;
+    
+    memset(dist, 0x3f, sizeof dist);//所有距离初始化成正无穷
+    dist[1] = 0;//起点到起点当然是0力
+
+    for (int i = 0; i &lt; n - 1; i ++ )//这里i不重要，只知道需要循环n-1次就行（）
+    &#123;
+        int t = -1;     // 在还未确定最短路的点中，寻找距离最小的点
+        for (int j = 1; j &lt;= n; j ++ )
+            &#123;
+                if (!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))//如果没有确定最短路或者当前路不是最短的
+                &#123;t = j;&#125;//把t给更新，头个节点在第一步这里变成0
+            &#125;
+想想dijkstra的步骤，每一次都是先找到所有里面最近的点
+        // 用t更新其他点的距离
+        for (int j = 1; j &lt;= n; j ++ )
+            &#123;使用一开始寻找到的点逐个遍历所有其它可以到达的点进行比较并更新
+                dist[j] = min(dist[j], dist[t] + g[t][j]);//再次遍历一次所有
+            &#125;
+
+        st[t] = true;//将那一个点标记为已经访问并且
+    &#125;
+
+    if (dist[n] == 0x3f3f3f3f) return -1;//说明1和n不联通
+    return dist[n];//起点到终点的距离
+&#125;
+
+
+//这里是读入的时候，注意注意要从1开始
+for(int i=1;i&lt;=n;i++)
+    &#123;
+        for(int j=1;j&lt;=n;j++)
+        &#123;
+            int tem;
+            cin&gt;&gt;tem;
+            if(tem==0)g[i][j]=INF;
+            else g[i][j]=tem;
+        &#125;
+    &#125;
+</code></pre>
+<p>对于该题有重边和自环，因此需要考虑一下处理</p>
+<ul>
+<li>多重边仅保留路径最短的那一条</li>
+<li>自环肯定不会被纳入最短路，可以不考虑</li>
+</ul>
+<h6 id="修改（任意一个点到其它所有点）"><a href="#修改（任意一个点到其它所有点）" class="headerlink" title="修改（任意一个点到其它所有点）"></a>修改（任意一个点到其它所有点）</h6><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+using namespace std;
+const int INF=0x3f3f3f3f;
+const int N=60;
+int n;      // n表示点数
+int g[N][N];        // 邻接矩阵，存储所有边
+int dist[N];        // 存储其他点到当前最小生成树的距离
+bool st[N];     // 存储每个点是否已经在生成树中，存储已纳入的集合
+void dijkstra(int s)//s是源点，其它都不重要
+&#123;
+    s=s+1;
+    memset(dist, 0x3f3f3f3f, sizeof dist);//所有距离初始化成正无穷
+    dist[s] = 0;//起点到起点当然是0力
+    for (int i = 0; i &lt; n - 1; i ++ )//这里i不重要，只知道需要循环n-1次就行（）
+    &#123;
+        int t = -1;     // 在还未确定最短路的点中，寻找距离最小的点
+        for (int j = 1; j &lt;= n; j ++ )
+            if (!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))//如果没有确定最短路或者当前路不是最短的
+                t = j;//把t给更新，头个节点在第一步这里变成0
+        // 用t更新其他点的距离
+        for (int j = 1; j &lt;= n; j ++ )
+            dist[j] = min(dist[j], dist[t] + g[t][j]);//再次遍历一次所有
+        st[t] = true;
+    &#125;
+    for(int i=1;i&lt;=n;i++)//这里就是最后的输出部分
+    &#123;
+        if(i!=s&amp;&amp;dist[i]!=0x3f3f3f3f)cout&lt;&lt;dist[i]&lt;&lt;&#39; &#39;;
+        else if(i!=s&amp;&amp;dist[i]==0x3f3f3f3f)cout&lt;&lt;-1&lt;&lt;&#39; &#39;;
+    &#125;
+&#125;
+int main()
+&#123;
+    int s;//s标记源点
+    cin&gt;&gt;n&gt;&gt;s;
+    for(int i=1;i&lt;=n;i++)
+    &#123;
+        for(int j=1;j&lt;=n;j++)
+        &#123;
+            int tem;
+            cin&gt;&gt;tem;
+            if(tem==0)g[i][j]=INF;
+            else g[i][j]=tem;
+        &#125;
+    &#125;
+    dijkstra(s);
+
+&#125;
+</code></pre>
+<h6 id="题目模板"><a href="#题目模板" class="headerlink" title="题目模板"></a>题目模板</h6><pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int N = 510, M = 100010;
+const int inf = 0x3f3f3f3f;
+int n, m;
+int g[N][N], dist[N];
+bool vis[N];
+
+
+int dijkstra()
+&#123;
+    memset(vis, 0, sizeof vis);
+    memset(dist, 0x3f, sizeof dist);
+    
+    dist[1] = 0;
+    for(int i = 1; i &lt;= n; i ++ )
+    &#123;
+        int t = -1;
+        for(int j = 1; j &lt;= n; j ++ )
+        &#123;
+            if(!vis[j] &amp;&amp; (t == -1 || dist[j] &lt; dist[t]))
+            &#123;
+                t = j;
+            &#125;
+        &#125;
+        
+        vis[t] = 1;
+        for(int j = 1; j &lt;= n; j ++ )
+        &#123;
+            if(dist[j] &gt; g[t][j] + dist[t])
+            &#123;
+                dist[j] = g[t][j] + dist[t];
+            &#125;
+        &#125;
+    &#125;
+    if(dist[n] * 2&gt; inf)
+    &#123;
+        return -1;
+    &#125;
+    return dist[n];
+&#125;
+int main()
+&#123;
+    cin &gt;&gt; n &gt;&gt; m;
+    memset(g, 0x3f, sizeof g);
+    while (m -- )
+    &#123;
+        int in, out, weight;
+        cin &gt;&gt; in &gt;&gt; out &gt;&gt; weight;
+        g[in][out] = min(g[in][out], weight);
+    &#125;
+    
+    cout &lt;&lt; dijkstra() &lt;&lt; &quot;\n&quot;;
+    return 0;
+&#125;
+</code></pre>
+<h6 id="模板：（优化版本的Dijkstra）"><a href="#模板：（优化版本的Dijkstra）" class="headerlink" title="模板：（优化版本的Dijkstra）"></a>模板：（优化版本的Dijkstra）</h6><p><strong>实际有点像广搜的</strong></p>
+<p><strong>如果是一个稀疏图，但是还要用遍历矩阵（n2复杂度）容易时间爆掉</strong></p>
+<p>使用小根堆优化</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221204105130527.png"
+                      alt="image-20221204105130527" style="zoom:50%;" 
+                >
+
+<p>也就是可以优化第一步，可以将第一步时间变成o1，第三步就要修改成mlogn，第二步不变</p>
+<p>即通过堆来存储，就可以减少计算量</p>
+<p>堆的实现方式：</p>
+<ul>
+<li>手写堆（好处在于方便维护）</li>
+<li>优先队列（c++的stl库已经预置好了），<strong>但是不支持修改任意一个元素</strong>，解决思路：每一次改变就插入一个新的数（好处方便操作，坏处会多了操作数，时间复杂度变成mlogm，但是方便，）</li>
+</ul>
+<p><strong>因此直接使用c++内置的优先队列就ok</strong></p>
+<pre><code class="c++">typedef pair&lt;int, int&gt; PII;
+//存储方式从邻接矩阵转换成邻接表
+int n;      // 点的数量
+int h[N], w[N], e[N], ne[N], idx;       // 邻接表存储所有边
+int dist[N];        // 存储所有点到1号点的距离
+bool st[N];     // 存储每个点的最短距离是否已确定
+
+// 求1号点到n号点的最短距离，如果不存在，则返回-1
+int dijkstra()
+&#123;
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;//这里的初始化和朴素版本是一样的
+    
+    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; heap;//这里使用优先队列维护所有距离，
+    heap.push(&#123;0, 1&#125;);      //第一次先把起点放进去，
+    // first存储距离，second存储节点编号
+
+    while (heap.size())//队列里面最多只有m个元素（最多只有m条边）
+    &#123;
+        auto t = heap.top();//堆的性质决定每一次都是距离最小的点
+        heap.pop();
+
+        int ver = t.second, distance = t.first;
+
+        if (st[ver]) continue;//说明这个点已经出来过了，不需要操作直接跳过到下一个点
+        st[ver] = true;
+
+        for (int i = h[ver]; i != -1; i = ne[i])//用这个点去更新其它所有点
+        &#123;
+            int j = e[i];//使用j来存储编号
+            if (dist[j] &gt; distance + w[i])
+            &#123;
+                dist[j] = distance + w[i];
+                heap.push(&#123;dist[j], j&#125;);//如果更新成功就把这个点放到队列里面去
+            &#125;
+        &#125;
+    &#125;
+
+    if (dist[n] == 0x3f3f3f3f) return -1;
+    return dist[n];
+&#125;
+</code></pre>
+<p>全部：</p>
+<p>有关优先队列库的函数：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/m0_57298796/article/details/126144321?ops_request_misc=%7B%22request_id%22:%22167012431116800215084254%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=167012431116800215084254&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-126144321-null-null.142%5Ev67%5Econtrol,201%5Ev3%5Econtrol_1,213%5Ev2%5Et3_control1&utm_term=c++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%BA%93&spm=1018.2226.3001.4187" >(110条消息) 【C++】优先队列详细讲解（原理+STL库调用）_半路杀出来的小黑同学的博客-CSDN博客_c++ 优先队列遍历<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;queue&gt;//堆的头文件
+
+using namespace std;
+
+typedef pair&lt;int, int&gt; PII;//堆里存储距离和节点编号
+
+const int N = 1e6 + 10;
+
+int n, m;//节点数量和边数
+int h[N], w[N], e[N], ne[N], idx;//邻接表存储图
+int dist[N];//存储距离
+bool st[N];//存储状态
+
+void add(int a, int b, int c)//修改了一下add函数
+&#123;//w存储距离
+    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++ ;
+&#125;
+
+int dijkstra()
+&#123;
+    memset(dist, 0x3f, sizeof dist);//距离初始化为无穷大
+    dist[1] = 0;
+    //pair的比较，先比较第一个元素，第一个相等比较第二个。
+    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; heap;//小根堆
+    heap.push(&#123;0, 1&#125;);//插入距离和节点编号
+
+    while (heap.size())//遍历了这个堆
+    &#123;
+        auto t = heap.top();//取距离源点最近的点，最小的
+        heap.pop();
+
+        int ver = t.second, distance = t.first;//ver:节点编号，distance:源点距离ver 的距离
+
+        if (st[ver]) continue;//如果距离已经确定，则跳过该点
+        st[ver] = true;
+
+        for (int i = h[ver]; i != -1; i = ne[i])//这里是链表的遍历方法
+            //更新ver所指向的节点距离
+        &#123;
+            int j = e[i];
+            if (dist[j] &gt; dist[ver] + w[i])
+            &#123;
+                dist[j] = dist[ver] + w[i];
+                heap.push(&#123;dist[j], j&#125;);//距离变小，则入堆
+            &#125;
+        &#125;
+    &#125;
+
+    if (dist[n] == 0x3f3f3f3f) return -1;
+    return dist[n];
+&#125;
+
+int main()
+&#123;
+    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);
+
+    memset(h, -1, sizeof h);
+    while (m -- )
+    &#123;
+        int a, b, c;
+        scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;c);
+        add(a, b, c);
+    &#125;
+
+    cout &lt;&lt; dijkstra() &lt;&lt; endl;
+
+    return 0;
+&#125;
+
+</code></pre>
+<h5 id="Bellman-Ford算法（bf算法）"><a href="#Bellman-Ford算法（bf算法）" class="headerlink" title="Bellman-Ford算法（bf算法）"></a>Bellman-Ford算法（bf算法）</h5><p>复杂度通常为<strong>o（VE）</strong></p>
+<p><strong>会多次访问同一条边</strong></p>
+<h6 id="解决问题："><a href="#解决问题：" class="headerlink" title="解决问题："></a>解决问题：</h6><ul>
+<li>可能有<strong>负边回路，Dijkstra如果判断的图中有负会导致距离成正无穷</strong></li>
+<li>部分只能使用bf解决（<strong>如果有边数限制，就只能用bf</strong>）</li>
+</ul>
+<p>很牛逼：<strong>可以用任意存储方式，也可以用结构体</strong></p>
+<p>应用：比如坐火车不能无限坐火车</p>
+<p>思路：</p>
+<ul>
+<li><p>两重循环，第二次循环所有边</p>
+</li>
+<li><p>n次迭代，更新思路有点类似dijistra</p>
+</li>
+</ul>
+<p><strong>可以判断是否存在<em>负回路</em>,即是可以用来找负环（如果限制了走的边的个数就可以用来找最短路）的，但时间较高，一般使用spfa寻找负环</strong></p>
+<h6 id="模板：-3"><a href="#模板：-3" class="headerlink" title="模板："></a>模板：</h6><pre><code class="c++">int n, m;       // n表示点数，m表示边数
+int dist[N];        // dist[x]存储1到x的最短路距离
+
+struct Edge     // 边，a表示出点，b表示入点，w表示边的权重
+&#123;
+    int a, b, w;
+&#125;edges[M];
+
+// 求1到n的最短路距离，如果无法从1走到n，则返回-1。
+int bellman_ford()
+&#123;
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;
+
+    // 如果第n次迭代仍然会松弛三角不等式，就说明存在一条长度是n+1的最短路径，由抽屉原理，路径中至少存在两个相同的点，说明图中存在负权回路。
+    for (int i = 0; i &lt; n; i ++ )
+    &#123;
+        for (int j = 0; j &lt; m; j ++ )
+        &#123;
+            int a = edges[j].a, b = edges[j].b, w = edges[j].w;
+            if (dist[b] &gt; dist[a] + w)
+                dist[b] = dist[a] + w;
+            //正常的模板是自身进行迭代对比的
+        &#125;
+    &#125;
+//这里注意要/2是因为如果有负边到达终点会造成距离不满足，如10^9−2，小于无穷，但仍然并不存在最短路 
+    if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
+    return dist[n];
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/14088/" >AcWing 853. 有边数限制的最短路 - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+
+using namespace std;
+
+const int N = 510, M = 10010;
+
+struct Edge &#123;//使用结构体来存储所有的边
+    int a;
+    int b;
+    int w;
+&#125; e[M];//把每个边保存下来即可
+int dist[N];
+int back[N];//备份数组防止串联
+int n, m, k;//k代表最短路径最多包涵k条边
+
+int bellman_ford() &#123;
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;
+    for (int i = 0; i &lt; k; i++) &#123;//k次循环
+        memcpy(back, dist, sizeof dist);//每一次迭代之前都要对当前数组进行备份，防止出现串联使得打破有限边数的限制
+        for (int j = 0; j &lt; m; j++) &#123;//遍历所有边
+            int a = e[j].a, b = e[j].b, w = e[j].w;
+            dist[b] = min(dist[b], back[a] + w);
+            //使用backup:避免给a更新后立马更新b, 这样b一次性最短路径就多了两条边出来
+        &#125;
+    &#125;
+    if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
+    else return dist[n];
+
+&#125;
+
+int main() &#123;
+    scanf(&quot;%d%d%d&quot;, &amp;n, &amp;m, &amp;k);
+    for (int i = 0; i &lt; m; i++) &#123;
+        int a, b, w;
+        scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;w);
+        e[i] = &#123;a, b, w&#125;;
+    &#125;
+    int res = bellman_ford();
+    if (res == -1) puts(&quot;impossible&quot;);//说明最短路长度不存在
+    else cout &lt;&lt; res;
+
+    return 0;
+&#125;
+</code></pre>
+<h5 id="spfa-队列优化版本的Bellman-Ford"><a href="#spfa-队列优化版本的Bellman-Ford" class="headerlink" title="spfa(队列优化版本的Bellman-Ford)"></a>spfa(队列优化版本的Bellman-Ford)</h5><p><strong>处理稀疏图，使用邻接表进行存储</strong></p>
+<p><strong>可以视为各方面都更加优秀的bf，就是对于bf进行一个优化</strong></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/105508/" >AcWing 851. spfa求最短路—图解–$\color{red}{海绵宝宝来喽}$ - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<p>其实正权图也可以用spfa去整</p>
+<p>bf缺点：每一次都要迭代所有边进行更新（每一次都要全部扫描）</p>
+<p>优化：使用<strong>广搜</strong>进行优化</p>
+<p>思路：</p>
+<ul>
+<li>起点放到队列里面去</li>
+<li>只要队列不空，就是广搜的迭代操作</li>
+<li>即<strong>我更新过谁，我再用谁去更新别人，我后面的人才会更小</strong></li>
+</ul>
+<p><strong>图中一定不能有负环(但是可以有负权边)，不然不能用</strong></p>
+<p>时间复杂度 平均情况下 O(m)，最坏情况下 O(nm), n 表示点数，m 表示边数</p>
+<pre><code class="c++">int n;      // 总点数
+int h[N], w[N], e[N], ne[N], idx;  // 邻接表存储所有边
+int dist[N];        // 存储每个点到1号点的最短距离
+bool st[N];     // 存储每个点是否在队列中，防止队列中存储重复点
+
+// 求1号点到n号点的最短路距离，如果从1号点无法走到n号点则返回-1
+int spfa()
+&#123;
+    memset(dist, 0x3f, sizeof dist);//初始化所有点的距离
+    dist[1] = 0;
+
+    queue&lt;int&gt; q;
+    q.push(1);
+    st[1] = true;
+//使用队列就是为了如起点更新过bc，则下一步仅针对bc进行更新
+    while (q.size())
+    &#123;
+        auto t = q.front();
+        q.pop();
+
+        st[t] = false;//该点不在队列里面
+
+        for (int i = h[t]; i != -1; i = ne[i])
+        &#123;
+            int j = e[i];
+            if (dist[j] &gt; dist[t] + w[i])//如果可以更新
+            &#123;
+                dist[j] = dist[t] + w[i];
+                if (!st[j])     
+                    // 如果队列中已存在j，则不需要将j重复插入
+                &#123;
+                    q.push(j);
+                    st[j] = true;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    if (dist[n] == 0x3f3f3f3f) return -1;
+    return dist[n];
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/853/" >851. spfa求最短路 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<h5 id="spfa判断是否存在负环"><a href="#spfa判断是否存在负环" class="headerlink" title="spfa判断是否存在负环"></a>spfa判断是否存在负环</h5><p>时间复杂度是 O(nm), n 表示点数，m 表示边数</p>
+<p>原理：使用dist数组表示1号数组到其它数组的距离，使用cnt表示当前最短路的边数</p>
+<h6 id="模板：-4"><a href="#模板：-4" class="headerlink" title="模板："></a>模板：</h6><pre><code class="c++">int n;      // 总点数
+int h[N], w[N], e[N], ne[N], idx;       // 邻接表存储所有边
+int dist[N], cnt[N];       
+// dist[x]存储1号点到x的最短距离，
+//cnt[x]存储1到x的最短路中经过的点数
+//每一次更新表示
+bool st[N];     // 存储每个点是否在队列中
+
+// 如果存在负环，则返回true，否则返回false。
+bool spfa()
+&#123;
+    // 不需要初始化dist数组
+    // 原理：如果某条最短路径上有n个点（除了自己），那么加上自己之后一共有n+1个点，由抽屉原理一定有两个点相同，所以存在环。
+
+    queue&lt;int&gt; q;
+    for (int i = 1; i &lt;= n; i ++ )
+    &#123;
+        q.push(i);//这里不同在于要全部入对保证每个点都能进行判断
+        st[i] = true;
+    &#125;
+
+    while (q.size())
+    &#123;
+        auto t = q.front();
+        q.pop();
+
+        st[t] = false;
+
+        for (int i = h[t]; i != -1; i = ne[i])
+        &#123;
+            int j = e[i];
+            if (dist[j] &gt; dist[t] + w[i])
+            &#123;
+                dist[j] = dist[t] + w[i];
+                cnt[j] = cnt[t] + 1;//更新的时候同步更新边数
+                if (cnt[j] &gt;= n) return true; 
+ // 如果从1号点到x的最短路中包含至少n个边（抽屉原理），则说明存在环
+ //这个环一定是个负环（因为spfa选择短的路，为了走短还多走一个点一定是存在负环）
+                if (!st[j])
+                &#123;
+                    q.push(j);
+                    st[j] = true;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+    return false;
+&#125;
+</code></pre>
+<h5 id="FLOYID算法（Dijkstra进一步输出全部）"><a href="#FLOYID算法（Dijkstra进一步输出全部）" class="headerlink" title="FLOYID算法（Dijkstra进一步输出全部）"></a>FLOYID算法（Dijkstra进一步输出全部）</h5><p>很简单，针对所有路</p>
+<p>原理：<strong>动态规划</strong></p>
+<p>d[k,i,j]，从i点出发，经过k个点，最终到达j点</p>
+<p>那么有d[k,i,j]&#x3D;d[k-1,i,k]+d[k-1,k,j]&#x2F;&#x2F;右边各经过了k-1个点</p>
+<p>可以优化，去掉一维，即d[i,j]&#x3D;d[i,k]&#x3D;d[k,j]</p>
+<h6 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h6><p>可以对有负边进行操作（但是不能有负回路）</p>
+<p>FLOYID可以求出所有点之间的最短路径（很暴力很牛逼很简洁很费时）</p>
+<p>使用邻接矩阵存储所有边</p>
+<h6 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h6><p>时间：n^3</p>
+<pre><code class="c++">//邻接矩阵初始化：
+    for (int i = 1; i &lt;= n; i ++ )
+        for (int j = 1; j &lt;= n; j ++ )
+            if (i == j) d[i][j] = 0;//自身到自身为0
+            else d[i][j] = INF;
+
+
+
+// 算法结束后，d[a][b]表示a到b的最短距离
+void floyd()
+&#123;
+    for (int k = 1; k &lt;= n; k ++ )
+        for (int i = 1; i &lt;= n; i ++ )
+            for (int j = 1; j &lt;= n; j ++ )
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+&#125;
+</code></pre>
+<p>对于求floyid，类似spfa判断无穷情况：</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 210, M = 2e+10, INF = 1e9;
+
+int n, m, k, x, y, z;
+int d[N][N];
+
+void floyd() &#123;
+    for(int k = 1; k &lt;= n; k++)
+        for(int i = 1; i &lt;= n; i++)
+            for(int j = 1; j &lt;= n; j++)
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+&#125;
+
+int main() &#123;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    for(int i = 1; i &lt;= n; i++)
+        for(int j = 1; j &lt;= n; j++)
+            if(i == j) d[i][j] = 0;
+            else d[i][j] = INF;
+    while(m--) &#123;
+        cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+        d[x][y] = min(d[x][y], z);
+        //注意保存最小的边
+    &#125;
+    floyd();
+    while(k--) &#123;
+        cin &gt;&gt; x &gt;&gt; y;
+        if(d[x][y] &gt; INF/2) puts(&quot;impossible&quot;);
+        //由于有负权边存在所以约大过INF/2也很合理
+        else cout &lt;&lt; d[x][y] &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<h4 id="prim最小生成树"><a href="#prim最小生成树" class="headerlink" title="prim最小生成树"></a>prim最小生成树</h4><p><strong>非常非常像dijkstra</strong></p>
+<p>处理步骤：</p>
+<ul>
+<li>首先全部初始化为+无穷</li>
+<li>开始循环迭代，用t更新到<strong>集合的距离</strong>（dijkstra这里是t更新到起点的距离）</li>
+<li>st[t]&#x3D;true（真的真的很像dijkstra）</li>
+</ul>
+<p><strong>点到集合的距离指点到集合的所有路径中选择最短的那一条</strong></p>
+<p><strong>注意一点 ，这个二维数组要下标是1到n</strong></p>
+<p>一次循环只会更新一个最近点</p>
+<p>每次更新最近点之后就会在该点可触及范围内更新与其它点的距离</p>
+<h6 id="朴素prim模板"><a href="#朴素prim模板" class="headerlink" title="朴素prim模板"></a>朴素prim模板</h6><pre><code class="c++">int n;      // n表示点数
+int g[N][N];        // 邻接矩阵，存储所有边
+int dist[N];        // 存储其他点到当前最小生成树的距离
+
+bool st[N];     // 存储每个点是否已经在生成树中，存储已纳入的集合
+const int INF=0x3f
+
+// 如果图不连通，则返回INF(值是0x3f3f3f3f), 否则返回最小生成树的树边权重之和
+int prim()
+&#123;
+    memset(dist, 0x3f, sizeof dist);//所有距离初始化+∞
+
+    int res = 0;//res存储所有边里面最小生成树的所有边长度之和
+    //每一次为了寻找到当前集合外所有点当中距离最小的点
+ 
+    for (int i = 0; i &lt; n; i ++ )//n次迭代
+    &#123;
+        int t = -1;
+        //必须要在集合外，所以从1开始，st
+        for (int j = 1; j &lt;= n; j ++ )
+            //必须在集合外并且t的距离大于当前点的距离
+            &#123;
+                if (!st[j] &amp;&amp; (t == -1 || dist[t] &gt; dist[j]))//t==-1是最初始时候的情况
+                &#123;
+                    t = j;
+                &#125;
+            &#125;
+        //现在t存的就是当前距离最小的点
+        
+        //不是第一个点并且距离是+∞
+        //说明当前这个图不联通，不存在最小生成树
+        if (i &amp;&amp; dist[t] == INF) return INF;
+
+        if (i) res += dist[t];
+        //否则不是第一条边就把dist加到答案中
+        st[t] = true;//说明这一个点已经是树集合的一份子咧
+
+        //对了注意顺序问题哦，一定要先累加再进行更新
+        //这一步更新一下其它点到集合的距离，同dijkstra
+        for (int j = 1; j &lt;= n; j ++ ) dist[j] = min(dist[j], g[t][j]);
+        
+    &#125;
+
+    return res;
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/860/" >858. Prim算法求最小生成树 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/38312/" >AcWing 858. Prim算法求最小生成树：图解+详细代码注释（带上了保存路径） - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/131270/" >AcWing 858. $\Huge\color{MediumTurquoise}{prim 与dijkstra的区别}$ - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">//2022.6.1 更新
+
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+const int N = 510;
+int g[N][N];//存储图
+int dt[N];//存储各个节点到生成树的距离
+int st[N];//节点是否被加入到生成树中
+int pre[N];//节点的前去节点
+int n, m;//n 个节点，m 条边
+
+void prim()
+&#123;
+    memset(dt,0x3f, sizeof(dt));//初始化距离数组为一个很大的数（10亿左右）
+    int res= 0;
+    dt[1] = 0;//从 1 号节点开始生成 
+    for(int i = 0; i &lt; n; i++)//每次循环选出一个点加入到生成树
+    &#123;
+        int t = -1;
+        for(int j = 1; j &lt;= n; j++)//每个节点一次判断
+        &#123;
+            if(!st[j] &amp;&amp; (t == -1 || dt[j] &lt; dt[t]))//如果没有在树中，且到树的距离最短，则选择该点
+                t = j;
+        &#125;
+
+        //2022.6.1 发现测试用例加强后，需要判断孤立点了
+        //如果孤立点，直返输出不能，然后退出
+        if(dt[t] == 0x3f3f3f3f) &#123;
+            cout &lt;&lt; &quot;impossible&quot;;
+            return;
+        &#125;
+
+
+        st[t] = 1;// 选择该点
+        res += dt[t];
+        for(int i = 1; i &lt;= n; i++)//更新生成树外的点到生成树的距离
+        &#123;
+            if(dt[i] &gt; g[t][i] &amp;&amp; !st[i])//从 t 到节点 i 的距离小于原来距离，则更新。
+            &#123;
+                dt[i] = g[t][i];//更新距离
+                pre[i] = t;//从 t 到 i 的距离更短，i 的前驱变为 t.
+            &#125;
+        &#125;
+    &#125;
+
+    cout &lt;&lt; res;
+
+&#125;
+
+void getPath()//输出各个边
+&#123;
+    for(int i = n; i &gt; 1; i--)//n 个节点，所以有 n-1 条边。
+
+    &#123;
+        cout &lt;&lt; i &lt;&lt;&quot; &quot; &lt;&lt; pre[i] &lt;&lt; &quot; &quot;&lt;&lt; endl;// i 是节点编号，pre[i] 是 i 节点的前驱节点。他们构成一条边。
+    &#125;
+&#125;
+
+int main()
+&#123;
+    memset(g, 0x3f, sizeof(g));//各个点之间的距离初始化成很大的数
+    cin &gt;&gt; n &gt;&gt; m;//输入节点数和边数
+    while(m --)
+    &#123;
+        int a, b, w;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; w;//输出边的两个顶点和权重
+        g[a][b] = g[b][a] = min(g[a][b],w);//存储权重
+    &#125;
+
+    prim();//求最下生成树
+    //getPath();//输出路径
+    return 0;
+&#125;
+</code></pre>
+<p>与Dijkstra类似，Prim算法也可以用堆优化，优先队列代替堆，优化的Prim算法时间复杂度O(mlogn)。适用于稀疏图，但是稀疏图的时候求最小生成树，Kruskal 算法更加实用。</p>
+<h4 id="克鲁斯卡尔最小生成树"><a href="#克鲁斯卡尔最小生成树" class="headerlink" title="克鲁斯卡尔最小生成树"></a>克鲁斯卡尔最小生成树</h4><p>时间是mlogm，思路也简单（不用考虑prim的）</p>
+<p><strong>核心：删除，判断</strong></p>
+<p>优点：</p>
+<ul>
+<li><strong>稀疏图尽管使用kruskal就ok</strong></li>
+<li><strong>kruskal也可以处理负权边的哦</strong></li>
+<li><strong>kruskal同bf算法，对于存储方式不挑剔，能存就行，可以用结构体</strong></li>
+</ul>
+<ol>
+<li>将所有边按照权重从小到大进行排序（这里用原有的排序就行）</li>
+<li>枚举每条边ab（权重是c），如果ab不连通（<strong>即在</strong>），就将这条边加入到集合里面</li>
+<li>只要边数是节点数-1就ok辽</li>
+</ol>
+<p><strong>这里建议参考并查集例题，837题</strong></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/839/" >837. 连通块中点的数量 - AcWing题库<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>kruskal是使用一个并查集去维护的，堆用于去做dijkstra</strong></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/104383/" >AcWing 859. Kruskal算法求最小生成树—$\color{red}{海绵宝宝来喽}$ - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<h6 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h6><pre><code class="c++">#include&lt;algorithm&gt;//需要引入这个头文件实现对结构体的大小排序操作
+int n, m;       // n是点数，m是边数
+int p[N];       // 并查集的父节点数组
+
+struct Edge     // 存储边
+&#123;
+    int a, b, w;
+
+    //下面这里是结构体的另一个函数，重载一下＜
+    bool operator&lt; (const Edge &amp;W)const
+    &#123;
+        return w &lt; W.w;
+    &#125;
+&#125;edges[M];//这里是开了一个结构体数组叫edges,有M个
+
+int find(int x)     // 并查集核心操作
+&#123;
+    if (p[x] != x) p[x] = find(p[x]);
+    return p[x];
+&#125;
+
+int kruskal()
+&#123;
+    sort(edges, edges + m);//nlogn
+
+    for (int i = 1; i &lt;= n; i ++ ) p[i] = i;    // 初始化并查集
+
+    //res存最小生成树里边所有边的权重之和
+    //cnt存的是当前增加了多少条边
+    int res = 0, cnt = 0;
+    //这里是从小到大枚举所有边
+    for (int i = 0; i &lt; m; i ++ )
+    &#123;
+        int a = edges[i].a, b = edges[i].b, w = edges[i].w;
+
+        a = find(a), b = find(b);
+        //使用一个并查集来判断两个点是否联通
+           // 如果两个连通块不连通，则将这两个连通块合并
+         if (a != b) 
+        &#123;
+            p[a] = b;//这里是两个点的合并操作
+            res += w;
+            cnt ++ ;
+        &#125;
+    &#125;
+
+    if (cnt &lt; n - 1) return INF;
+    return res;
+&#125;
+</code></pre>
+<p>题：</p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+const int N = 100010;
+int p[N];//保存并查集
+
+struct E&#123;
+    int a;
+    int b;
+    int w;
+    bool operator &lt; (const E&amp; rhs)&#123;//通过边长进行排序
+        return this-&gt;w &lt; rhs.w;
+    &#125;
+
+&#125;edg[N * 2];
+int res = 0;
+
+int n, m;
+int cnt = 0;
+int find(int a)&#123;//并查集找祖宗
+    if(p[a] != a) p[a] = find(p[a]);
+    return p[a];
+&#125;
+void klskr()&#123;
+    for(int i = 1; i &lt;= m; i++)//依次尝试加入每条边
+   &#123;
+        int pa = find(edg[i].a)；// a 点所在的集合
+        int pb = find(edg[i].b);// b 点所在的集合
+        if(pa != pb)&#123;//如果 a b 不在一个集合中
+            res += edg[i].w;//a b 之间这条边要
+            p[pa] = pb;// 合并a b
+            cnt ++; // 保留的边数量+1
+        &#125;
+    &#125;
+&#125;
+int main()
+&#123;
+
+    cin &gt;&gt; n &gt;&gt; m;//同样注意这里是1开始，因此下面sort函数起始也是+1
+    for(int i = 1; i &lt;= n; i++) p[i] = i;//初始化并查集
+    for(int i = 1; i &lt;= m; i++)&#123;//读入每条边
+        int a, b , c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt;c;
+        edg[i] = &#123;a, b, c&#125;;
+    &#125;
+    sort(edg + 1, edg + m + 1);//按边长排序
+    klskr();//并查集初始化包含在函数中
+    if(cnt &lt; n - 1) &#123;//如果保留的边小于点数-1，则不能连通
+        cout&lt;&lt; &quot;impossible&quot;;
+        return 0;
+    &#125;
+    cout &lt;&lt; res;
+    return 0;
+&#125;
+</code></pre>
+<h4 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h4><h5 id="染色法判定："><a href="#染色法判定：" class="headerlink" title="染色法判定："></a>染色法判定：</h5><p>使用性质：<strong>一个图是二分图当且仅当图中不含奇数环&#x2F;奇圈</strong></p>
+<p>奇数环：环，而且当中边的数量是奇数</p>
+<p>时间复杂度是 O(n+m), n 表示点数，m 表示边数</p>
+<p>思路：<strong>一条边的两个端点一定属于不同的集合</strong>，一个联通块中只要一个点的颜色确定，其它点的颜色都确定（白色只能与黑色相邻，黑色只能与白色相邻），由于不存在奇数环，染色过程中<strong>一定没有矛盾</strong></p>
+<p>因此需要<strong>将整个图遍历一遍，由于图没有权，负边，因此可以用dfs，bfs来弄，模板这里使用dfs</strong></p>
+<p>因此，<strong>如果有矛盾，那肯定就不是了呗</strong></p>
+<p>则判定两个关键函数：</p>
+<ul>
+<li>dfs</li>
+<li>判定是否出现矛盾</li>
+</ul>
+<pre><code class="c++">int n;      // n表示点数
+int h[N], e[M], ne[M], idx;     // 邻接表存储图
+int color[N];       // 表示每个点的颜色，-1表示未染色，0表示白色，1表示黑色
+//三色染色法，考虑go语言runtime部分三色标定部分
+
+// 参数：u表示当前节点，c表示当前点的颜色
+//这里使用深搜因为相对而言深搜的代码量更少，只用回溯，不需要手写队列
+bool dfs(int u, int c)
+&#123;
+    color[u] = c;
+    for (int i = h[u]; i != -1; i = ne[i])
+    &#123;
+        int j = e[i];
+        if (color[j] == -1)
+        &#123;
+            if (!dfs(j, !c)) return false;
+        &#125;
+        else if (color[j] == c) return false;
+    &#125;
+
+    return true;
+&#125;
+
+bool check()
+&#123;
+    memset(color, -1, sizeof color);
+    bool flag = true;
+    for (int i = 1; i &lt;= n; i ++ )
+        if (color[i] == -1)
+            if (!dfs(i, 0))
+            &#123;
+                flag = false;
+                break;
+            &#125;
+    return flag;
+&#125;
+</code></pre>
+<p>随便整一道例题康康：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/105874/" >AcWing 860. 染色法判定二分图—$\color{green}{详细代码注释+图解}$ - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int N = 100010 * 2;
+int e[N], ne[N], idx;//邻接表存储图
+int h[N];
+int color[N];//保存各个点的颜色，0 未染色，1 是红色，2 是黑色
+int n, m;//点和边
+
+void add(int a, int b)//邻接表插入点和边
+&#123;
+    e[idx] = b, ne[idx]= h[a], h[a] = idx++;
+&#125;
+
+bool dfs(int u, int c)//深度优先遍历
+&#123;
+    color[u] = c;//u的点成 c 染色
+
+    //遍历和 u 相邻的点
+    for(int i = h[u]; i!= -1; i = ne[i])
+    &#123;
+        int b = e[i];                   
+        if(!color[b])//相邻的点没有颜色,则递归处理这个相邻点
+        &#123;
+            if(!dfs(b, 3 - c)) return false;//（3 - 1 = 2， 如果 u 的颜色是2，则和 u 相邻的染成 1）
+                                            //（3 - 2 = 1， 如果 u 的颜色是1，则和 u 相邻的染成 2）
+        &#125;
+        else if(color[b] &amp;&amp; color[b] != 3 - c)//如果已经染色，判断颜色是否为 3 - c
+        &#123;                                     
+            return false;//如果不是，说明冲突，返回                   
+        &#125;
+    &#125;
+    return true;
+&#125;
+
+int main()
+&#123;
+    memset(h, -1, sizeof h);//初始化邻接表
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i = 1; i &lt;= m; i++)//读入边
+    &#123;
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        add(a, b), add(b, a);
+    &#125;
+    for(int i = 1; i &lt;= n; i++)//遍历点
+    &#123;
+        if(!color[i])//如果没染色
+        &#123;
+            if(!dfs(i, 1))//染色该点，并递归处理和它相邻的点
+            &#123;
+                cout &lt;&lt; &quot;No&quot; &lt;&lt; endl;//出现矛盾，输出NO 
+                return 0;
+            &#125;
+
+        &#125;
+    &#125;
+    cout &lt;&lt; &quot;Yes&quot; &lt;&lt; endl;//全部染色完成，没有矛盾，输出YES
+    return 0;
+&#125;
+</code></pre>
+<h5 id="匈牙利算法"><a href="#匈牙利算法" class="headerlink" title="匈牙利算法"></a>匈牙利算法</h5><p>作用：<strong>给定一个二分图，求它的最大匹配</strong>（可以在一个较短的时间内匹配）</p>
+<p><strong>把它想象成月老匹配对象算法</strong></p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\image-20221209154342327.png"
+                      alt="image-20221209154342327" style="zoom:33%;" 
+                >
+
+<p>一些概念：</p>
+<blockquote>
+<p>二分图的匹配：给定一个二分图 G，在 G 的一个子图 M 中，M 的边集 {E}中的任意两条边都不依附于同一个顶点，则称 M 是一个匹配。</p>
+<p>二分图的最大匹配：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数</p>
+</blockquote>
+<p>基本思路：</p>
+<ul>
+<li>对于每个男生从前往后看（果然开始当月老看了），如果女生处于单身状态则可以匹配</li>
+<li>再看下一个，某个男生匹配某个女生，如果该女生已经被匹配，这个男生也不会善罢甘休（什么黄毛剧情），如果之前匹配的男生a可以更换女生（越来越奇怪了），男生b会与这个女生匹配（他甚至专门用了绿色绝了）</li>
+</ul>
+<p><strong>所以很多时候做错是没事的，错过是真的会后悔</strong></p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\me\配图\uwE7FNHfzxn5RZY.gif"
+                      alt="006eb5E0gy1g7y35ngyr5g311v0j67jy.gif" style="zoom:50%;" 
+                >
+
+<p>时间复杂度（n*m）（<strong>最坏情况</strong>），实际上时间是会很少的</p>
+<p>注意：<strong>如果对左边进行遍历，那么边就要存储左边指向右边的</strong></p>
+<h6 id="模板：-5"><a href="#模板：-5" class="headerlink" title="模板："></a>模板：</h6><pre><code class="c++">int n1, n2;     // n1表示第一个集合中的点数，n2表示第二个集合中的点数
+int h[N], e[M], ne[M], idx;     // 邻接表存储所有边，匈牙利算法中只会用到从第一个集合指向第二个集合的边，所以这里只用存一个方向的边
+int match[N];       // 存储第二个集合中的每个点当前匹配的第一个集合中的点是哪个
+bool st[N];     // 表示第二个集合中的每个点是否已经被遍历过
+
+bool find(int x)//判断能否找到妹子
+&#123;//使用枚举
+    for (int i = h[x]; i != -1; i = ne[i])
+    &#123;
+        int j = e[i];
+        if (!st[j])//如果妹子之前没有考虑过
+        &#123;
+            st[j] = true;
+            
+            //如果妹子之前没有匹配任何男生或者女生匹配的男生可以找到下家
+            if (match[j] == 0 || find(match[j]))
+            &#123;
+                match[j] = x;//当前妹子匹配就改变了
+                return true;
+            &#125;
+        &#125;
+    &#125;
+
+    return false;//就是在匹配不上，那咱就算了
+&#125;
+
+// 求最大匹配数，依次枚举第一个集合中的每个点能否匹配第二个集合中的点
+//这里是main函数里面的部分
+int res = 0;
+for (int i = 1; i &lt;= n1; i ++ )
+&#123;
+    memset(st, false, sizeof st);//先把所有的妹子清空
+    if (find(i)) res ++ ;//如果可以找到的话，成功数量增加
+&#125;
+</code></pre>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/5334/" >AcWing 861. 二分图的最大匹配 - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/51413/" >AcWing 861. 二分图最大匹配 - 如果你看了别的题解，仍然对递归写法的st数组心存疑虑，看看这里【21.12.7更新】 - AcWing<i class="fas fa-external-link-alt"></i></a></p>
+<pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int N = 510 , M = 100010;
+int n1,n2,m;
+int h[N],ne[M],e[M],idx;
+bool st[N];
+int match[N];
+
+void add(int a , int b)
+&#123;
+    e[idx] = b, ne[idx] = h[a], h[a] = idx++;
+&#125;
+
+void init()
+&#123;
+    memset(h,-1,sizeof h);
+&#125;
+
+int find(int x)
+&#123;
+    //遍历自己喜欢的女孩
+    for(int i = h[x] ; i != -1 ;i = ne[i])
+    &#123;
+        int j = e[i];
+        if(!st[j])//如果在这一轮模拟匹配中,这个女孩尚未被预定
+        &#123;
+            st[j] = true;//那x就预定这个女孩了
+            //如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功
+            if(!match[j]||find(match[j]))
+            &#123;
+                match[j] = x;
+                return true;
+            &#125;
+
+        &#125;
+    &#125;
+    //自己中意的全部都被预定了。配对失败。
+    return false;
+&#125;
+int main()
+&#123;
+    init();
+    cin&gt;&gt;n1&gt;&gt;n2&gt;&gt;m;
+    while(m--)
+    &#123;
+        int a,b;
+        cin&gt;&gt;a&gt;&gt;b;
+        add(a,b);
+    &#125;
+
+
+    int res = 0;
+    for(int i = 1; i &lt;= n1 ;i ++)
+    &#123;  
+         //因为每次模拟匹配的预定情况都是不一样的所以每轮模拟都要初始化
+          memset(st,false,sizeof st);
+        if(find(i)) 
+          res++;
+    &#125;  
+
+    cout&lt;&lt;res&lt;&lt;endl;
+&#125;
+</code></pre>
+<h4 id="关键路径（AOE网，拓扑plus版本）"><a href="#关键路径（AOE网，拓扑plus版本）" class="headerlink" title="关键路径（AOE网，拓扑plus版本）"></a>关键路径（AOE网，拓扑plus版本）</h4><h6 id="基础背景知识："><a href="#基础背景知识：" class="headerlink" title="基础背景知识："></a>基础背景知识：</h6><p>AOE网：AOV网基础上加上每个节点（工序）所消耗的时间</p>
+<p>AOE网要建立再活动之间制约关系没有矛盾的基础之上，再来分析完成整个工程需要多少时间，或者为了缩短完成工程所需时间，应当加快哪些活动</p>
+<p>关键路径：从源点到汇点具有最大长度的路径：</p>
+<p>关键活动：关键路径上的活动（实际上就可以理解成多种活动并行执行，有些耗时最长的活动来衡量整体工程的执行时间）-&gt;修改关键活动才会对整个工期长度进行实际减少</p>
+<h6 id="核心：寻找关键活动"><a href="#核心：寻找关键活动" class="headerlink" title="核心：寻找关键活动"></a>核心：寻找关键活动</h6><p>方法：找到所有活动的最早开始时间和最晚开始时间，并且进行比较，如果相等意味着此活动是关键活动，活动间的路径是关键路径</p>
+<h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><h6 id="与最短路关系："><a href="#与最短路关系：" class="headerlink" title="与最短路关系："></a>与最短路关系：</h6><p><strong>dp问题可以视为特殊的最短路问题，即最短路包含dp，是一个没有环存在的最短路，dp实际是深搜，保证可以到达终点，但不保证是最短路</strong></p>
+<h3 id="暴力搜索"><a href="#暴力搜索" class="headerlink" title="暴力搜索"></a>暴力搜索</h3><h4 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h4><p>回溯法效率：低，但比for强</p>
+<h6 id="解决问题：for嵌套无法解决时候"><a href="#解决问题：for嵌套无法解决时候" class="headerlink" title="解决问题：for嵌套无法解决时候"></a>解决问题：for嵌套无法解决时候</h6><p>理论基础：来源于递归的回溯(隐藏在递归的下面)，与二叉树遍历，深度优先搜索混在一起进行，二叉树在返回的过程中也用到了回溯</p>
+<p>可解决问题：<del>传统for暴力搜索方式无法解决</del></p>
+<ul>
+<li>组合问题：（如一串数字询问可以组合的方式数）<strong>组合强调没有顺序</strong></li>
+<li>排列问题：<strong>排列强调元素顺序</strong></li>
+<li>切割问题：（字符串，加上某种限定条件，询问切割方式）</li>
+<li>子集问题：找出所有子集</li>
+<li>棋盘问题：（典中典皇后，数独)</li>
+</ul>
+<p>小总结，用于解决组合和排列</p>
+<p>ADT:<strong>可以抽象为一个树形结构</strong>，可以抽象为一棵n叉树，树的宽度是<strong>集合的大小</strong>，即<strong>每个节点处理的集合的大小</strong>-&gt;这里通常使用for循环来处理。树的深度（纵方向）也就是<strong>递归的深度</strong>，</p>
+<h6 id="回溯模板"><a href="#回溯模板" class="headerlink" title="回溯模板"></a>回溯模板</h6><pre><code class="c++">void backtracking(参数) &#123;
+    if (终止条件) &#123;//终止条件
+        存放结果;//一般问题都是在叶子节点收集结果（最后一个节点）
+                //而子集问题每一个节点都要收集结果
+        return;//收集完结果之后返回
+    &#125;
+    for (选择：本层集合中元素（树中节点的数量就是集合的大小）) &#123;
+        处理节点;
+        backtracking(路径，选择列表); // 递归，这里是深度，向下探索
+        回溯，
+        撤销处理结果//结束循环
+    &#125;
+&#125;
+</code></pre>
+<h6 id="棋盘典中点：皇后位置"><a href="#棋盘典中点：皇后位置" class="headerlink" title="棋盘典中点：皇后位置"></a>棋盘典中点：皇后位置</h6><p>c++直接完整版本代码：（LeetCode 版本）</p>
+<pre><code class="c++">class Solution &#123;
+private:
+vector&lt;vector&lt;string&gt;&gt; result;
+// n 为输入的棋盘大小
+// row 是当前递归到棋牌的第几行了
+void backtracking(int n, int row, vector&lt;string&gt;&amp; chessboard) &#123;
+    if (row == n) &#123;//回溯到最后一行，说明满足情况了
+        result.push_back(chessboard);
+        return;
+    &#125;
+    for (int col = 0; col &lt; n; col++) &#123;
+        if (isValid(row, col, chessboard, n)) &#123; // 验证合法就可以放
+            chessboard[row][col] = &#39;Q&#39;; // 放置皇后
+            backtracking(n, row + 1, chessboard);//再进一行进行检验
+            chessboard[row][col] = &#39;.&#39;; // 回溯，撤销皇后
+        &#125;
+    &#125;
+&#125;
+bool isValid(int row, int col, vector&lt;string&gt;&amp; chessboard, int n) &#123;
+    int count = 0;
+    // 检查列
+    for (int i = 0; i &lt; row; i++) &#123; // 这是一个剪枝
+        if (chessboard[i][col] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    // 检查 45度角是否有皇后
+    for (int i = row - 1, j = col - 1; i &gt;=0 &amp;&amp; j &gt;= 0; i--, j--) &#123;//另一个剪支
+        if (chessboard[i][j] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    // 检查 135度角是否有皇后
+    for(int i = row - 1, j = col + 1; i &gt;= 0 &amp;&amp; j &lt; n; i--, j++) &#123;
+        if (chessboard[i][j] == &#39;Q&#39;) &#123;
+            return false;
+        &#125;
+    &#125;
+    return true;
+&#125;
+public:
+    vector&lt;vector&lt;string&gt;&gt; solveNQueens(int n) &#123;
+        result.clear();
+        std::vector&lt;std::string&gt; chessboard(n, std::string(n, &#39;.&#39;));
+        backtracking(n, 0, chessboard);//注意这里是从0开始的，所以最后到n，实际上以及对n层进行了判断
+        return result;
+    &#125;
+&#125;;
+
+/*总结操作流程：
+类似二叉树，对每个节点进行遍历，实际复杂度是n^2，从开头一直向下延申，可满足情况进行返回
+</code></pre>
+<p>c++数组版本皇后问题:<strong>老子自己写的！（双手叉腰）</strong></p>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include&lt;vector&gt;
+using namespace std;
+const int maxn=9;
+int solu[maxn]=&#123;0&#125;;
+int qn[maxn]=&#123;0&#125;;
+bool isValid(int posj,int posi)//最后那个pos也就是棋子的坐标
+&#123;
+    //posi=i,posj=qn[i]
+    if(posi==0)return true;
+    for(int i=0;i&lt;posi;i++)
+    &#123;
+        if(qn[i]==posj)return false;//相同的列判断
+    &#125;
+    for(int i=posi-1;i&gt;=0;i--)//45判断
+    &#123;
+        if(posi-i==posj-qn[i])return false;
+    &#125;
+    for(int i=posi-1;i&gt;=0;i--)//135
+    &#123;
+        if(posi-i==qn[i]-posj)return false;
+    &#125;
+    return true;
+&#125;
+void backtracing(int n,int row)
+&#123;
+    if(row==n)&#123;//终止了，找到了其中一种解决方案
+        cout&lt;&lt;&quot;bottom reached\n&quot;;
+        cout&lt;&lt;&quot;solution:\n&quot;;
+        for(int  i=0;i&lt;n;i++)
+        &#123;
+            cout&lt;&lt;&quot;row &quot;&lt;&lt;i+1&lt;&lt;&quot; equals to &quot;&lt;&lt;qn[i]+1&lt;&lt;&quot; \n&quot;;
+        &#125;
+        cout&lt;&lt;&quot;go find other solution\n\n&quot;;
+        return;
+    &#125;
+    else&#123;
+        for(int i=0;i&lt;n;i++)//注意这里的传参
+        &#123;
+            qn[row]=i;//row，行固定，列用变量i对每一行进行遍历，如果满足之前条件进入下一行
+            if(isValid(qn[row],row))//该行该位置能否放
+            &#123;
+
+                backtracing(n,row+1);//可以就继续往下走
+
+            &#125;
+        &#125;
+    &#125;
+
+&#125;
+
+int main()
+&#123;
+    int n;
+
+    cin&gt;&gt;n;
+    backtracing(n,0);
+&#125;
+</code></pre>
+<h1 id="图形化数据结构学习："><a href="#图形化数据结构学习：" class="headerlink" title="图形化数据结构学习："></a>图形化数据结构学习：</h1><h3 id="栈：非递归汉诺塔"><a href="#栈：非递归汉诺塔" class="headerlink" title="栈：非递归汉诺塔"></a>栈：非递归汉诺塔</h3><p>难点：不能使用递归（如果使用递归在画图之前会全部更新完，最后只会给出结果），改成非递归方式</p>
+<p><strong>本质：</strong>将递归结构在循环中实现</p>
+<p>老师解法：</p>
+<p>参考博客：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52118067/article/details/121880963?ops_request_misc=&request_id=&biz_id=102&utm_term=%E6%B1%89%E8%AF%BA%E5%A1%94%E9%9D%9E%E9%80%92%E5%BD%92&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-121880963.142%5Ev53%5Epc_rank_34_1,201%5Ev3%5Econtrol_1&spm=1018.2226.3001.4187" >(99条消息) 汉诺塔的非递归实现（堆栈）_.别拖至春天.的博客-CSDN博客_汉诺塔的非递归实现<i class="fas fa-external-link-alt"></i></a></p>
+<p>![屏幕截图 2022-10-12 155526](D:\typora note\屏幕截图 2022-10-12 155526.png)</p>
+<p>代码以及注释：</p>
+<p><strong>ops是空栈，用于保存指令，并且在n&#x3D;&#x3D;1的时候才进行弹出操作</strong></p>
+<pre><code class="c++">if(!ops.empty()) &#123;
+                //
+                op current = ops.top();//非空赋值
+                ops.pop();//
+                if(current.n == 1) &#123;//每一个待处理的物品数量变成1的时候进行弹栈，一直弹到不是1
+                    //
+                    // 这里的current.start等等已经改变成对应的代号了
+                    //
+
+                    int d = stacks[current.start]-&gt;top();
+                    stacks[current.start]-&gt;pop();
+                    stacks[current.end]-&gt;push(d);
+                &#125; else &#123;
+                    //这里应该就是正常非递归
+                    //如果不是1，进行分解,
+                    //如要做到(n,a,b,c),n个从a到c
+                    //分解，并且按照顺序进栈（当然弹出的时候就是相反的顺序）
+                    //1:(n-1,a,c,b)
+                    //2:(1,a,b,c)
+                    //3:(n-1,b,a,c)
+                    //因为程序执行语言是从上到下，但是指令压栈应该是321，因此最后是321
+                    //ops是一个存储指令的栈
+                    ops.push(op(current.n - 1, current.via, current.start, current.end));//3
+                    ops.push(op(1, current.start, current.via, current.end));//2
+                    ops.push(op(current.n - 1, current.start, current.end, current.via));//1
+                &#125;
+            &#125;
+</code></pre>
+<p>南大关于非递归的应用（<strong>对于C语言作为状态机的分析讲解</strong>）</p>
+<img  
+                     lazyload
+                     alt="image"
+                     data-src="D:\typora note\image-20221030163324612.png"
+                      alt="image-20221030163324612" style="zoom:50%;" 
+                >
+
+<h3 id="队列：迷宫生成及解决"><a href="#队列：迷宫生成及解决" class="headerlink" title="队列：迷宫生成及解决"></a>队列：迷宫生成及解决</h3><p>重点解决问题：回溯法</p>
+<p>顺便要学习的算法：迪杰斯特拉解法（可以等一等再看看）</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据结构与算法 PART 1</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%9APART-2"><span class="nav-number">1.</span> <span class="nav-text">数据结构与算法：PART 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA"><span class="nav-number">1.0.1.</span> <span class="nav-text">搜索与图论</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E7%A7%8D%E7%B1%BB%EF%BC%9A"><span class="nav-number">1.0.1.0.0.1.</span> <span class="nav-text">搜索种类：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">建立搜索模型：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%EF%BC%9A%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%8F%96%E5%AD%90%E6%A0%91%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.0.1.1.0.1.</span> <span class="nav-text">优势：可以获取子树的大小</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%EF%BC%9A%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.0.1.1.0.2.</span> <span class="nav-text">核心：顺序</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%85%A8%E6%8E%92%E5%88%97%E5%81%9A%E6%B3%95%EF%BC%9A"><span class="nav-number">1.0.1.1.0.3.</span> <span class="nav-text">全排列做法：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#DFS%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%BA%94%E7%94%A8%EF%BC%9A%E7%9A%87%E5%90%8E%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.0.1.1.0.4.</span> <span class="nav-text">DFS另一种应用：皇后位置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS%EF%BC%88%E4%BD%BF%E7%94%A8%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%EF%BC%89"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">BFS（使用二维数组）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="nav-number">1.0.1.2.0.1.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B9%BF%E6%90%9C%E7%9A%84%E6%A1%86%E6%9E%B6"><span class="nav-number">1.0.1.2.0.2.</span> <span class="nav-text">广搜的框架</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%88%E5%A6%82%E8%AF%A5%E9%81%93%E9%A2%98%EF%BC%89"><span class="nav-number">1.0.1.2.0.3.</span> <span class="nav-text">代码（如该道题）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%91%E5%92%8C%E5%9B%BE%E7%9A%84DFS%EF%BC%8CBFS"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">树和图的DFS，BFS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%91%E4%B8%8E%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E9%80%89%E6%8B%A9"><span class="nav-number">1.0.1.3.1.</span> <span class="nav-text">树与图的存储选择</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%EF%BC%9A"><span class="nav-number">1.0.1.3.1.1.</span> <span class="nav-text">邻接矩阵：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8%EF%BC%9A"><span class="nav-number">1.0.1.3.1.2.</span> <span class="nav-text">邻接表：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%91%E5%9B%BEDFS"><span class="nav-number">1.0.1.3.2.</span> <span class="nav-text">树图DFS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A"><span class="nav-number">1.0.1.3.2.1.</span> <span class="nav-text">模板：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%91%E5%9B%BEBFS"><span class="nav-number">1.0.1.3.3.</span> <span class="nav-text">树图BFS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A-1"><span class="nav-number">1.0.1.3.3.1.</span> <span class="nav-text">模板：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%EF%BC%9ABFS%E7%9A%84%E4%B8%80%E7%A7%8D%E5%BA%94%E7%94%A8%EF%BC%88AOV%E7%BD%91%EF%BC%8C%E6%B5%81%E7%A8%8B%E8%83%BD%E5%90%A6%E6%AD%A3%E7%A1%AE%E6%89%A7%E8%A1%8C%EF%BC%89"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">拓扑排序：BFS的一种应用（AOV网，流程能否正确执行）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%85%E9%92%88%E5%AF%B9%E6%9C%89%E5%90%91%E5%9B%BE%EF%BC%8C%E6%97%A0%E5%90%91%E5%9B%BE%E6%B2%A1%E5%BE%97%E6%8B%93%E6%89%91"><span class="nav-number">1.0.1.4.0.1.</span> <span class="nav-text">仅针对有向图，无向图没得拓扑</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%B8%80%E4%B8%AA%E6%B1%82"><span class="nav-number">1.0.1.4.0.2.</span> <span class="nav-text">如何进行一个求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="nav-number">1.0.1.4.0.3.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A-2"><span class="nav-number">1.0.1.4.0.4.</span> <span class="nav-text">模板：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91"><span class="nav-number">1.0.1.5.</span> <span class="nav-text">动态查找：二叉搜索树</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%8A%82%E7%82%B9%EF%BC%9A"><span class="nav-number">1.0.1.5.0.1.</span> <span class="nav-text">插入节点：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%8A%82%E7%82%B9"><span class="nav-number">1.0.1.5.1.</span> <span class="nav-text">删除节点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%B6%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">1.0.1.5.1.1.</span> <span class="nav-text">叶子节点</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%8A%82%E7%82%B9p%E4%BB%85%E6%9C%89%E4%B8%80%E6%A3%B5%E5%AD%90%E6%A0%91%EF%BC%9A"><span class="nav-number">1.0.1.5.1.2.</span> <span class="nav-text">节点p仅有一棵子树：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%8A%82%E7%82%B9p%E6%97%A2%E6%9C%89%E5%B7%A6%E5%AD%90%E6%A0%91%E5%8F%88%E6%9C%89%E5%8F%B3%E5%AD%90%E6%A0%91%EF%BC%9A"><span class="nav-number">1.0.1.5.1.3.</span> <span class="nav-text">节点p既有左子树又有右子树：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E6%9F%A5%E6%89%BE%EF%BC%9Akd%E6%A0%91%EF%BC%88%E5%9B%BE%E5%BD%A2%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%9C%E8%A5%BF%E4%BC%9A%E6%B6%89%E5%8F%8A%EF%BC%8C%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E4%B8%80%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%89%F0%9F%99%8F"><span class="nav-number">1.0.1.5.2.</span> <span class="nav-text">动态查找：kd树（图形相关的东西会涉及，很重要的一种数据结构）🙏</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.1.6.</span> <span class="nav-text">最短路问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0Dijkstra%E7%AE%97%E6%B3%95-%E5%92%8C%E5%A0%86%E6%9C%89%E5%85%B3-%EF%BC%88%E9%9D%A2%E8%AF%95%E4%B9%9F%E6%9C%89%EF%BC%89"><span class="nav-number">1.0.1.6.1.</span> <span class="nav-text">朴素Dijkstra算法(和堆有关)（面试也有）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9A%EF%BC%88%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8%E8%AF%A5%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-number">1.0.1.6.1.1.</span> <span class="nav-text">应用场景：（什么时候使用该算法）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%EF%BC%9A-1"><span class="nav-number">1.0.1.6.1.2.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A%EF%BC%88%E6%9C%B4%E7%B4%A0%E7%89%88%E6%9C%AC%E7%9A%84Dijkstra%EF%BC%89%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9An-2"><span class="nav-number">1.0.1.6.1.3.</span> <span class="nav-text">模板：（朴素版本的Dijkstra）复杂度：n^2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%EF%BC%88%E4%BB%BB%E6%84%8F%E4%B8%80%E4%B8%AA%E7%82%B9%E5%88%B0%E5%85%B6%E5%AE%83%E6%89%80%E6%9C%89%E7%82%B9%EF%BC%89"><span class="nav-number">1.0.1.6.1.4.</span> <span class="nav-text">修改（任意一个点到其它所有点）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.0.1.6.1.5.</span> <span class="nav-text">题目模板</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A%EF%BC%88%E4%BC%98%E5%8C%96%E7%89%88%E6%9C%AC%E7%9A%84Dijkstra%EF%BC%89"><span class="nav-number">1.0.1.6.1.6.</span> <span class="nav-text">模板：（优化版本的Dijkstra）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bellman-Ford%E7%AE%97%E6%B3%95%EF%BC%88bf%E7%AE%97%E6%B3%95%EF%BC%89"><span class="nav-number">1.0.1.6.2.</span> <span class="nav-text">Bellman-Ford算法（bf算法）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">1.0.1.6.2.1.</span> <span class="nav-text">解决问题：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A-3"><span class="nav-number">1.0.1.6.2.2.</span> <span class="nav-text">模板：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spfa-%E9%98%9F%E5%88%97%E4%BC%98%E5%8C%96%E7%89%88%E6%9C%AC%E7%9A%84Bellman-Ford"><span class="nav-number">1.0.1.6.3.</span> <span class="nav-text">spfa(队列优化版本的Bellman-Ford)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spfa%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B4%9F%E7%8E%AF"><span class="nav-number">1.0.1.6.4.</span> <span class="nav-text">spfa判断是否存在负环</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A-4"><span class="nav-number">1.0.1.6.4.1.</span> <span class="nav-text">模板：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FLOYID%E7%AE%97%E6%B3%95%EF%BC%88Dijkstra%E8%BF%9B%E4%B8%80%E6%AD%A5%E8%BE%93%E5%87%BA%E5%85%A8%E9%83%A8%EF%BC%89"><span class="nav-number">1.0.1.6.5.</span> <span class="nav-text">FLOYID算法（Dijkstra进一步输出全部）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9A"><span class="nav-number">1.0.1.6.5.1.</span> <span class="nav-text">应用：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.0.1.6.5.2.</span> <span class="nav-text">模板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prim%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">1.0.1.7.</span> <span class="nav-text">prim最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0prim%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.0.1.7.0.1.</span> <span class="nav-text">朴素prim模板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%8B%E9%B2%81%E6%96%AF%E5%8D%A1%E5%B0%94%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-number">1.0.1.8.</span> <span class="nav-text">克鲁斯卡尔最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-1"><span class="nav-number">1.0.1.8.0.1.</span> <span class="nav-text">模板</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E5%9B%BE"><span class="nav-number">1.0.1.9.</span> <span class="nav-text">二分图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%93%E8%89%B2%E6%B3%95%E5%88%A4%E5%AE%9A%EF%BC%9A"><span class="nav-number">1.0.1.9.1.</span> <span class="nav-text">染色法判定：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="nav-number">1.0.1.9.2.</span> <span class="nav-text">匈牙利算法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%EF%BC%9A-5"><span class="nav-number">1.0.1.9.2.1.</span> <span class="nav-text">模板：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84%EF%BC%88AOE%E7%BD%91%EF%BC%8C%E6%8B%93%E6%89%91plus%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-number">1.0.1.10.</span> <span class="nav-text">关键路径（AOE网，拓扑plus版本）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="nav-number">1.0.1.10.0.1.</span> <span class="nav-text">基础背景知识：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%EF%BC%9A%E5%AF%BB%E6%89%BE%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8"><span class="nav-number">1.0.1.10.0.2.</span> <span class="nav-text">核心：寻找关键活动</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83"><span class="nav-number">1.0.2.</span> <span class="nav-text">贪心</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%8E%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%85%B3%E7%B3%BB%EF%BC%9A"><span class="nav-number">1.0.2.0.0.1.</span> <span class="nav-text">与最短路关系：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%90%9C%E7%B4%A2"><span class="nav-number">1.0.3.</span> <span class="nav-text">暴力搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">回溯法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%9Afor%E5%B5%8C%E5%A5%97%E6%97%A0%E6%B3%95%E8%A7%A3%E5%86%B3%E6%97%B6%E5%80%99"><span class="nav-number">1.0.3.1.0.1.</span> <span class="nav-text">解决问题：for嵌套无法解决时候</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.0.3.1.0.2.</span> <span class="nav-text">回溯模板</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A3%8B%E7%9B%98%E5%85%B8%E4%B8%AD%E7%82%B9%EF%BC%9A%E7%9A%87%E5%90%8E%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.0.3.1.0.3.</span> <span class="nav-text">棋盘典中点：皇后位置</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">图形化数据结构学习：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%EF%BC%9A%E9%9D%9E%E9%80%92%E5%BD%92%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="nav-number">2.0.1.</span> <span class="nav-text">栈：非递归汉诺塔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97%EF%BC%9A%E8%BF%B7%E5%AE%AB%E7%94%9F%E6%88%90%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="nav-number">2.0.2.</span> <span class="nav-text">队列：迷宫生成及解决</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">breayhing / SIRI</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
