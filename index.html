@@ -22,7 +22,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/head.png","font_size":"18px","font_family":"STKaiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Ubiquitous assimilation || 做一条咸鱼，但是没事扑腾两下","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"obsdian"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/head.png","font_size":"18px","font_family":"STKaiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Ubiquitous assimilation || 做一条咸鱼，但是没事扑腾两下","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
     KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
     KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
@@ -249,6 +249,60 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="2023/03/10/%E7%AB%99%E7%82%B9%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/">
+                        站点更新记录
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        3.10目前问题：
+
+ 代码高亮问题（啊哈）
+ 图片未跟上插入（可以考虑新开文件夹用于存放图片）
+ 备案？（这个暂时不需要考虑吧。。。大概？）
+ 能不能将pdf上传（这样子直接上学过的东西就方便了）
+
+想法：
+
+ 能不能再加一些桌面动态变化效果（比如...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-updated="Wed Apr 12 2023 23:53:06 GMT+0800">
+                2023-04-12
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="tags/%E5%8E%86%E5%8F%B2/">历史</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="2023/03/10/%E7%AB%99%E7%82%B9%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="2023/03/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95PART2/">
                         数据结构与算法 PART 2
                     </a>
@@ -345,20 +399,21 @@
 
                 <h3 class="home-article-title">
                     <a href="2023/03/08/web%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">
-                        web技术学习笔记
+                        Web技术学习笔记
                     </a>
                 </h3>
 
                 <div class="home-article-content keep-markdown-body">
                     
-                        关于ReactReact渲染原理：react渲染原理 - 掘金 (juejin.cn)
-React笔记HOOKs：
-useState
-useRef
-useContext
-useEffect
+                        web项目会议3.6（第一次会议）参会人员：梁文骏（大气学院学长），Qingyu（澳洲学长，提问）
+工作内容：
+流星多站视频检测网（观测流星）
+介绍部分：观测流星手段：
 
+光学观测
+雷达观测
 
+发光高度：约80-100km，使用三角定位（即初中数学题...
                     
                 </div>
 
@@ -366,8 +421,8 @@ useEffect
     <div class="home-article-meta-info">
         <span>
             <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Thu Mar 09 2023 16:58:10 GMT+0800">
-                2023-03-09
+            <span class="home-article-date" data-updated="Wed Apr 12 2023 23:32:20 GMT+0800">
+                2023-04-12
             </span>
         </span>
         
@@ -387,60 +442,6 @@ useEffect
     </div>
 
     <a class="read-more" href="2023/03/08/web%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="2023/03/08/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/">
-                        软件分析与设计
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        导论软件生命周期
-
-软件定义
-软件开发
-软件维护
-
-人年&#x2F;人月：工程计量单位：一个人干一年&#x2F;月
-相对于实体制造业，软件开发主要困难：正确的软件需求分析与架构设计
-建模：对于某一问题进行一定程度的抽象以更好理解其本质
-软件建模：编码...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Fri Mar 10 2023 10:53:41 GMT+0800">
-                2023-03-10
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="2023/03/08/%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -499,52 +500,6 @@ useEffect
                 
 
                 <h3 class="home-article-title">
-                    <a href="2023/03/03/cs-net-assignment-1/">
-                        CS-net-assignment#1
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        SSE206 Computer Networks Assignment #1Q1：
-今天最流行的无限因特网接入技术有WIFI和4G接入。WIFI速度快但距离短（距离基站近），4G速度慢但距离远（距离基站远），以及最新的5G技术，相对于4G具有更低时间...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Fri Mar 10 2023 17:01:41 GMT+0800">
-                2023-03-10
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="tags/cs-net/">cs-net</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="2023/03/03/cs-net-assignment-1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
                     <a href="2023/03/02/blog%E5%BB%BA%E7%AB%8B%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95/">
                         建站踩坑录
                     </a>
@@ -585,63 +540,6 @@ useEffect
     </div>
 
     <a class="read-more" href="2023/03/02/blog%E5%BB%BA%E7%AB%8B%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="2023/03/02/sse-net%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">
-                        sse-net计算机网络笔记
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        参考网课：
-Chapter 1protocol:发起连接时候双方都遵守的一定规则(规范语法，语义，时序)
-DSL：最之前家庭网络连接方法（数字用户线）
-internet标准：
-
-RFC
-IETF
-WIFI
-WAPI
-
-TCP：传输控制协议，应用
-
-H...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-updated="Wed Mar 08 2023 14:56:25 GMT+0800">
-                2023-03-08
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="tags/%E5%AD%A6%E4%B9%A0bi-ji/">学习bi&#39;ji</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="2023/03/02/sse-net%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
 </div>
 
             </li>
