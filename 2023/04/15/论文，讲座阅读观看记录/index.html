@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="CS笔记 , 代码">
+    <meta name="description" content="目前在更进的一个小网站">
+    <meta name="author" content="breayhing / SIRI">
+    
+    <title>
+        
+            讲座论文啥子的观看想法 |
+        
+        Breayhing的博客
+    </title>
+    
+<link rel="stylesheet" href="../../../../css/style.css">
+
+    <link rel="shortcut icon" href="../../../../images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/font/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#0066cc","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/head.png","font_size":"18px","font_family":"STKaiti","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Ubiquitous assimilation || 做一条咸鱼，但是没事扑腾两下","font_color":null,"hitokoto":false},"scroll":{"progress_bar":true,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":true,"custom_label_list":["Trainee","Engineer","Architect"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"left","copyright_info":false},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="../../../../images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               Breayhing的博客
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../index.html"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../archives"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="../../../../categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="http://sirohune.site/"
+                            >
+                                友情链接
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../index.html">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../archives">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="../../../../categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="http://sirohune.site/">友情链接</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">讲座论文啥子的观看想法</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="../../../../images/head.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">breayhing / SIRI</span>
+                            
+                                <span class="author-label">Lv2</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-04-15 14:42:28</span>
+        <span class="mobile">2023-04-15 14:42</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-04-15 14:43:32</span>
+    </span>
+    
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.4k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h1 id="软件讲座"><a href="#软件讲座" class="headerlink" title="软件讲座"></a>软件讲座</h1><h2 id="蒋炎岩老师：模型"><a href="#蒋炎岩老师：模型" class="headerlink" title="蒋炎岩老师：模型"></a>蒋炎岩老师：模型</h2><p>模型：软件系统中的小小世界</p>
+<p><strong>计算机系统是状态机，软件也是状态机</strong></p>
+<ul>
+<li>真实系统的状态机过于庞大，只有化简（仅仅关注一个侧面）才能理解</li>
+</ul>
+<h4 id="如何用模型指导软件测试"><a href="#如何用模型指导软件测试" class="headerlink" title="如何用模型指导软件测试"></a>如何用模型指导软件测试</h4><p>软件测试实质：搞破坏</p>
+<h6 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h6><p>小世界假设：软件bug只需要关注软件系统的一小部分即可触发，而描述bug发生实际上只需要少量信息</p>
+<p>小世界建模：<strong>建模系统发生的关键事件，将软件测试问题变成一个搜索问题</strong></p>
+<ul>
+<li>操作系统对于进程，文件的抽象本质上上世纪七十年代到当今其实基本没有变化</li>
+</ul>
+<p>小世界建模：<strong>建模基础系统和演化带来的特性</strong></p>
+<p>例如船，从帆船到航母，实际上破坏船体都会带来相似的结果，可以用相同的思想去测试，即对于测试航母，先建模一个帆船的模型，针对帆船进行测试</p>
+<p>在操作系统内核中，可以建立一个基础的UNIX的文件系统模型，以插件的形式将现代操作系统的功能加入，对该种基础模型进行测试，一般也可以测试出来内核的问题</p>
+<p>对于编译器：</p>
+<ul>
+<li>程序&#x3D;框架+语句</li>
+<li><ul>
+<li>框架确定了控制流</li>
+<li>语句确定了数据流和含义</li>
+</ul>
+</li>
+</ul>
+<h4 id="模型：程序合成"><a href="#模型：程序合成" class="headerlink" title="模型：程序合成"></a>模型：程序合成</h4><p><strong>软件的动态更新</strong>，就像是一台不会停止运行的服务器就可以运行</p>
+<p>目标：能不能调试代码不需要重新编译（这里是编译原理的东西吗？），就不需要停止软件运行</p>
+<p>思路：将对函数的调用改为对函数指针的调用</p>
+<p>难题：<strong>代码改一行，数据全变样</strong>，即会导致之前数据的迁移异常</p>
+<p><strong>动态更新：对象状态转换</strong>，比如原本是数组，通过一个函数更新为链表的存储方式</p>
+<p>期望：<strong>自动生成对象状态操作历史</strong></p>
+<p>例如对数组到链表的转换，可以生成一个序列备份这样就可以复原，</p>
+<p>感觉挺好，但是软件复杂度上升然后就顶不住了</p>
+<p>答案：在项目本身中</p>
+<p>在复杂的软件项目中构造一个模型，将一个完整的项目进行拆分，拆分成小的模型和片段，将其中可以替换的部分进行更新，最后再进行一个合成，完成一个动态更新</p>
+<h4 id="模型：计算机系统的构造和解释"><a href="#模型：计算机系统的构造和解释" class="headerlink" title="模型：计算机系统的构造和解释"></a>模型：计算机系统的构造和解释</h4><p>关于《操作系统》这一门课，就可以为计算机系统进行建模，所有软件都是状态机，对状态机就能进行一个模拟</p>
+<h6 id="为计算机硬件建模"><a href="#为计算机硬件建模" class="headerlink" title="为计算机硬件建模"></a>为计算机硬件建模</h6><p>将精简为计算机软件提供的<strong>核心机制通过C函数实现多处理器硬件的抽象</strong>，这样写操作系统不再需要汇编</p>
+<h6 id="为操作系统建模"><a href="#为操作系统建模" class="headerlink" title="为操作系统建模"></a>为操作系统建模</h6><p>从应用角度，操作系统就可以视为一组API，进行建模之后，也可以了解操作系统的实现正确性和编译器的编译正确性</p>
+<h4 id="总结：化繁为简”"><a href="#总结：化繁为简”" class="headerlink" title="总结：化繁为简”"></a>总结：化繁为简”</h4><p><strong>对于无法搞懂的复杂系统，就建模成简单系统，搞清楚小的模型的原理，然后再映射回去</strong></p>
+<ul>
+<li><p>模型：更小的系统，更小的状态空间</p>
+</li>
+<li><ul>
+<li>系统&#x3D;行为的总和</li>
+<li>模型便于暂时忽略复杂性，化繁为简</li>
+</ul>
+<h3 id="蒋炎岩老师：安卓应用跨设备迁移"><a href="#蒋炎岩老师：安卓应用跨设备迁移" class="headerlink" title="蒋炎岩老师：安卓应用跨设备迁移"></a>蒋炎岩老师：安卓应用跨设备迁移</h3><p>相同应用在不同设备之间会出现问题（如最简单的计算器会在屏幕尺寸不同时出现不同的显示界面）</p>
+<p>一台机器的测试用例如果能通过但是在别的设备上可以使用，更复杂应用如word的包基本相同，但是在手机上和平板上面界面是很不一样的</p>
+<p><strong>软件工程中的搜索问题</strong></p>
+<p>软件自动化：</p>
+<ul>
+<li>生成测试用例</li>
+<li>生成代码</li>
+<li>生成时间</li>
+</ul>
+<p>解决方式：使用贪心方法找到相同操作的映射</p>
+<p><strong>搜索+剪枝</strong></p>
+<h6 id="应用向更小屏幕的迁移"><a href="#应用向更小屏幕的迁移" class="headerlink" title="应用向更小屏幕的迁移"></a>应用向更小屏幕的迁移</h6><p>如手机应用向穿戴设备（手表等）迁移，将原有的移动应用界面“映射”到智能手表上（其中还要能够选出来需要的功能）</p>
+<p>软工vs系统</p>
+<ul>
+<li>应用：人类需求在信息世界的投影</li>
+<li>系统：硬件上构建的服务系统</li>
+</ul>
+<p><strong>ai属于连接软件与系统之间的桥梁</strong></p>
+<h3 id="数据库发展"><a href="#数据库发展" class="headerlink" title="数据库发展"></a>数据库发展</h3></li>
+</ul>
+<p>预测：</p>
+<p>智能化作用逐步加大</p>
+<h6 id="影响数据库发展的因素"><a href="#影响数据库发展的因素" class="headerlink" title="影响数据库发展的因素"></a>影响数据库发展的因素</h6><ul>
+<li>软件计数</li>
+<li>数据模型</li>
+<li>硬件</li>
+<li>计算模式</li>
+<li>架构演进</li>
+<li>新型应用</li>
+</ul>
+<h2 id="计算机内存管理（论文读）"><a href="#计算机内存管理（论文读）" class="headerlink" title="计算机内存管理（论文读）"></a>计算机内存管理（论文读）</h2><p>[<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xy4y1b7SK/?spm_id_from=333.999.top_right_bar_window_default_collection.content.click" >原创] 每个程序员都应该知道的内存知识 (带你走读Ulrich Drepper的经典论文)_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></p>
+<p>重点：3，4，6章</p>
+<h4 id="视频1："><a href="#视频1：" class="headerlink" title="视频1："></a>视频1：</h4><p>cpu访问速度与内存访问速度出现显著差距（CPU速度与SRAM速度显著下降，而DRAM速度提升不高，SSD相对于磁盘提升了一部分速度）</p>
+<p>提升方法：</p>
+<ul>
+<li>利用cpu缓存</li>
+<li>改进ram架构设计</li>
+<li>内存控制设计</li>
+<li>DMA</li>
+</ul>
+<p>最初系统包括南北桥系统（北桥包含RAM内存控制器，南桥包含PCIE和USB，SATA）</p>
+<p>演进时改进成为了一种将cpu集成的设计</p>
+<p>当今使用SDRAM（一种DRAM，但是可以同步时钟信号）行列选通都是低电平有效</p>
+<p>关于预充电与激活：不同芯片在行选中与下一行选中之间有时间间隔，会在其中进行准备</p>
+<h4 id="视频2："><a href="#视频2：" class="headerlink" title="视频2："></a>视频2：</h4><p>存储结构：寄存器到SRAM到DRAM</p>
+<p>冯诺依曼架构实际上使用得不太多</p>
+<p>L1指令缓存与数据缓存是分开的，在二级缓存开始就是分开的</p>
+<h6 id="cpu缓存："><a href="#cpu缓存：" class="headerlink" title="cpu缓存："></a>cpu缓存：</h6><p>缓存不命中原因：</p>
+<ul>
+<li>一开始缓存中没有任何数据（预热区间）</li>
+<li>缓存容量不够用</li>
+<li>发生访问冲突（如修改缓存数据时也需要同步修改主存数据）</li>
+</ul>
+<h6 id="cpu缓存具体实现："><a href="#cpu缓存具体实现：" class="headerlink" title="cpu缓存具体实现："></a>cpu缓存具体实现：</h6><ol>
+<li>全相连缓存</li>
+</ol>
+<p>缓存是以行的形式存储</p>
+<ol start="2">
+<li>直接映射缓存</li>
+</ol>
+<p>硬件实现容易</p>
+<p>缓存容量越大，命中概率越高</p>
+<h6 id="写回缓存"><a href="#写回缓存" class="headerlink" title="写回缓存"></a>写回缓存</h6><p>写回：缓存数据修改会打上“脏数据”标记，在一段时间后写回主存（延时策略）</p>
+<p>缓存替换策略：选择替换的方式，最常使用LRU（计组部分的知识）</p>
+<p>cpu设计中有很多访问预测的部分（减少流水线停止导致的时间开销，也就是苏老师做的用ai自行判断内存访问部分）</p>
+<p>访问时序部分：</p>
+<h4 id="视频3："><a href="#视频3：" class="headerlink" title="视频3："></a>视频3：</h4><h6 id="第四章：虚拟内存"><a href="#第四章：虚拟内存" class="headerlink" title="第四章：虚拟内存"></a>第四章：虚拟内存</h6><p>虚拟内存映射（操作系统部分）：每个程序实际上都会自动分配一定的虚拟内存，但是物理内存不足，会出现内存越界情况</p>
+<p>如果内存中有足够一个程序（进程）运行的内存总量（总量是2G，但是是在物理地址上不连续）就没办法运行新的进程</p>
+<p>不同进程之间由于可能占用相同的物理内存，导致改写内存呢使得相应地址的数据是“脏数据”</p>
+<p>虚拟内存属于一种抽象。</p>
+<p>在虚拟地址情况下，使用物理内存方式发生变化，可以灵活映射</p>
+<p>计算机任何问题都可以通过加一层来解决</p>
+<p>例：没有虚拟内存时候只能连续地进行映射，加上虚拟内存，如实际连续物理地址不足会映射到其它空余地方（如硬盘也行），这样进程不会崩溃</p>
+<p>通过映射可以自由决定映射位置，<strong>即使进程使用的是同样的虚拟地址，但映射算法会映射到不同的物理地址上（哈希表解决冲突）</strong>，如果几个程序需要使用同一内存，操作系统就会映射到同一个物理地址保证使用数据相同</p>
+<p><strong>映射是在硬件级别来做（MMU，内存管理单元），在CPU内核和内存之间</strong></p>
+<p>LAZY ALLOCATION：内核使用一种推迟分配内存的方式，当用户申请一块内存，操作系统（硬件）不一定马上分配这一块内存（为了优化性能），实际使用中申请一块内存，接下来使用的机会会其实很少（在链接，装载，一些库函数中也会使用到）</p>
+<p>页：</p>
+<ul>
+<li>页是一个内存大小单元</li>
+</ul>
+<p>TLB：包含映射的东西，正常在虚拟地址上通过TLB映射到物理地址</p>
+<p>使用Directory索引来查找在具体哪一页，完整页表放在主存中，即访问内存时可能会访问两次内存（间址寻址） </p>
+<p>采用方法：使用硬件（TLB），TLB分为指令部分与数据部分（来加快速度），本质类似CACHE</p>
+<p>增加TLB方法：</p>
+<ul>
+<li>单个页变大（4k改2M，命中概率增大）</li>
+<li>再增加一级TLB缓存</li>
+</ul>
+<h4 id="视频4："><a href="#视频4：" class="headerlink" title="视频4："></a>视频4：</h4><p>很多内置库函数如new，malloc其实都是设计内存管理</p>
+<p>大公司都在开发自己的内存分配器（如谷歌脸书等等）</p>
+<p>行与列访问具有不同效率</p>
+<p>TLB优化：尽量减少内存使用，</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="../../../../tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">#学习笔记</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="../../16/web%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">Web项目开发日志</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="../../../03/10/%E7%AB%99%E7%82%B9%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">站点更新记录</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%B2%E5%BA%A7"><span class="nav-number">1.</span> <span class="nav-text">软件讲座</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%92%8B%E7%82%8E%E5%B2%A9%E8%80%81%E5%B8%88%EF%BC%9A%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">蒋炎岩老师：模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8%E6%A8%A1%E5%9E%8B%E6%8C%87%E5%AF%BC%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">如何用模型指导软件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.0.1.0.1.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%EF%BC%9A%E7%A8%8B%E5%BA%8F%E5%90%88%E6%88%90"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">模型：程序合成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%EF%BC%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">模型：计算机系统的构造和解释</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.1.0.3.0.1.</span> <span class="nav-text">为计算机硬件建模</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BB%BA%E6%A8%A1"><span class="nav-number">1.1.0.3.0.2.</span> <span class="nav-text">为操作系统建模</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E5%8C%96%E7%B9%81%E4%B8%BA%E7%AE%80%E2%80%9D"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">总结：化繁为简”</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%92%8B%E7%82%8E%E5%B2%A9%E8%80%81%E5%B8%88%EF%BC%9A%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E8%B7%A8%E8%AE%BE%E5%A4%87%E8%BF%81%E7%A7%BB"><span class="nav-number">1.1.1.</span> <span class="nav-text">蒋炎岩老师：安卓应用跨设备迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%90%91%E6%9B%B4%E5%B0%8F%E5%B1%8F%E5%B9%95%E7%9A%84%E8%BF%81%E7%A7%BB"><span class="nav-number">1.1.1.0.0.1.</span> <span class="nav-text">应用向更小屏幕的迁移</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%91%E5%B1%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">数据库发展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8F%91%E5%B1%95%E7%9A%84%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.1.2.0.0.1.</span> <span class="nav-text">影响数据库发展的因素</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%88%E8%AE%BA%E6%96%87%E8%AF%BB%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">计算机内存管理（论文读）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E9%A2%911%EF%BC%9A"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">视频1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E9%A2%912%EF%BC%9A"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">视频2：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#cpu%E7%BC%93%E5%AD%98%EF%BC%9A"><span class="nav-number">1.2.0.2.0.1.</span> <span class="nav-text">cpu缓存：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#cpu%E7%BC%93%E5%AD%98%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">1.2.0.2.0.2.</span> <span class="nav-text">cpu缓存具体实现：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%86%99%E5%9B%9E%E7%BC%93%E5%AD%98"><span class="nav-number">1.2.0.2.0.3.</span> <span class="nav-text">写回缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E9%A2%913%EF%BC%9A"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">视频3：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">1.2.0.3.0.1.</span> <span class="nav-text">第四章：虚拟内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%86%E9%A2%914%EF%BC%9A"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">视频4：</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2023</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">breayhing / SIRI</a>
+            
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    本站由 <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span> 提供部署服务
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/post-helper.js"></script>
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/anime.min.js"></script>
+        
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/toc.js"></script>
+        
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.6.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
