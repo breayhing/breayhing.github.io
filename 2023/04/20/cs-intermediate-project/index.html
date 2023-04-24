@@ -9,7 +9,7 @@
     
     <title>
         
-            Web项目开发日志 |
+            软件工程中级实训复盘（流水账） |
         
         Breayhing的博客
     </title>
@@ -177,7 +177,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Web项目开发日志</span>
+                <span class="title-hover-animation">软件工程中级实训复盘（流水账）</span>
             </div>
 
             
@@ -199,13 +199,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-04-16 15:27:13</span>
-        <span class="mobile">2023-04-16 15:27</span>
+        <span class="pc">2023-04-20 19:24:54</span>
+        <span class="mobile">2023-04-20 19:24</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-04-24 08:58:15</span>
+        <span class="pc">2023-04-24 12:57:36</span>
     </span>
     
     
@@ -225,12 +225,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>974 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -244,81 +244,99 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h1 id="Web项目开发日志"><a href="#Web项目开发日志" class="headerlink" title="Web项目开发日志"></a>Web项目开发日志</h1><h6 id="3-31"><a href="#3-31" class="headerlink" title="3.31"></a>3.31</h6><ul>
-<li>前端：使用React和Axios，mui等等渲染库</li>
-<li>后端：使用python写，通过一个MongoEngine，使用mongodb数据库</li>
-</ul>
-<p>问题：</p>
+                <p>目标：</p>
 <ul>
-<li>前端调用的哪一个后端的接口获取数据库数据</li>
-<li>前端如何将获得的数据进行显示（尤其是不同的url是怎样显示到前端的）</li>
+<li>建立bbs</li>
 </ul>
-<h6 id="4-1"><a href="#4-1" class="headerlink" title="4.1"></a>4.1</h6><ul>
-<li>暂时别想关于权限，就任意用户都能将所有人信息都展示出来</li>
-</ul>
-<p>总结：</p>
+<p>开发语言：</p>
 <ul>
-<li>显示resource not found，进一步想想办法，怎么把数据导出来</li>
-</ul>
-<h6 id="4-2"><a href="#4-2" class="headerlink" title="4.2"></a>4.2</h6><ul>
-<li><a class="link"   target="_blank" rel="noopener" href="https://meteoroid.atlassian.net/wiki/spaces/METD/pages/31293441/API+Contract" >API Contract 用户查询 - Meteoroid.fit - Confluence (atlassian.net)<i class="fas fa-external-link-alt"></i></a> （该页面了解少，不太明白）</li>
-<li>确定就是axios的，接下来去看一看axios的api吧。。。。</li>
-<li>接下来想办法找到resources的存放位置，能找到就能导入<ul>
-<li>api接口部分去看了，未找到，下一步看一看后端有没有相关连接</li>
+<li><p>GO：Gin</p>
+</li>
+<li><p>js：Vue</p>
+<ul>
+<li>前端搭建：vite</li>
 </ul>
 </li>
-</ul>
-<h6 id="4-3"><a href="#4-3" class="headerlink" title="4.3"></a>4.3</h6><ul>
-<li>根据郑哥可以导入数据（使用axios框架的get api），目前用户列表可以展示</li>
-<li>准备弄用户个人界面</li>
-</ul>
-<h6 id="4-16：filter部分-前端"><a href="#4-16：filter部分-前端" class="headerlink" title="4.16：filter部分(前端)"></a>4.16：filter部分(前端)</h6><p>根据mui的filter进行操作，尝试学着去弄</p>
-<p>才发现.env好像放在api-sdk里面了，没有放到backend里面</p>
-<h6 id="4-17"><a href="#4-17" class="headerlink" title="4.17"></a>4.17</h6><p>好像弄懂了是哪一个contains，下一步暂时目标明确了</p>
-<ul>
-<li>改写filter，让只包含contains</li>
-<li>现在需要去寻找一个包含filter的位置的东西（再去进一步研究一下）尤其是有没有data相关的东西</li>
-</ul>
-<p>下半：</p>
-<ul>
-<li>修改filter（通过在Grid中进行修改，现在做到了只有contains字段）</li>
-<li>下一步去研究如何将数据一并进行修改，并且显示（考虑使用原本的API？）</li>
-<li>现在的问题：对于sort完全没有修改，value可以自主识别</li>
-<li>想法：也许修改好参数，可以传入value，之后就可以进行排序了？<ul>
-<li>可以在之前基础上调整一下参数传入？（这样可以吗？）</li>
-<li>怀疑：参数的问题，现在getfiltermodel第三个参数正常（使用后就是排序）</li>
-<li>怀疑第二个参数不对劲（传入后没有反应）</li>
-</ul>
-</li>
-<li>成功！不过还有优化空间<ul>
-<li><input disabled="" type="checkbox"> filter与sort之间的逻辑前后执行问题（现在先sort再filter可以，反之则不太行）</li>
-<li><input checked="" disabled="" type="checkbox"> 对于没有过滤器的选项，直接取消filter选项（已经解决）</li>
-</ul>
+<li><p>数据库：MySQL</p>
 </li>
 </ul>
-<p>终于！凹了大概八九个小时？（其实总共用的时间加起来大概是十几个小时的时间），终于把需要的功能做出来了</p>
-<p>nice！！！今晚去健身房锻炼一下，现在超级爽</p>
-<p>稍微复盘一下学到的东西</p>
+<p>暂时任务：</p>
 <ul>
-<li>对于mui的理解大大加强了（至少这个周六日静下心来仔细啃了一遍）</li>
-<li>对于axios的理解也了解了更多一些（rect可以用，之后也可以用于vue语言的前端代码编写）</li>
-<li>gpt真的好用（不光是用于写代码，更好的在于理解你需要做的事情，帮助你去快速学习一个新的概念并且非常有逻辑）</li>
-<li>着重看了js的回调函数callback部分，关于异步同步的理解方面</li>
+<li>学习go语言</li>
+<li>js，vue学习</li>
+<li>搭建GO，js（Vue）相关开发工具以及环境配置</li>
+<li>数据库开发工具，环境配置</li>
+<li>分析：文档编写（）</li>
 </ul>
-<p>下一步准备：</p>
-<ul>
-<li>没事的话（虽然拿脚趾头想都会感觉不会没事）去看一下项目的代码</li>
-<li>go语言项目等待进度然后去稍微赶一下（vue和react的共通之处稍微了解一下）</li>
-<li>现在主要身份即是开发者（web项目）也是挂你人员（中级实训部分），考虑一下全栈（虽然大概率现在就在这样子做）</li>
-<li>reacct的hook继续去看一下</li>
-<li>计网和操作系统的书去看一下（这一周，至少周二之后终于可以闲下来俩天了）</li>
-</ul>
-<h6 id="4-24"><a href="#4-24" class="headerlink" title="4.24"></a>4.24</h6><ul>
-<li>去修改一下commit</li>
-</ul>
-<h5 id="VSCODE快捷键"><a href="#VSCODE快捷键" class="headerlink" title="VSCODE快捷键"></a>VSCODE快捷键</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ctrl+shift+f  <span class="comment">#全局搜索代码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="流程（gpt部分）"><a href="#流程（gpt部分）" class="headerlink" title="流程（gpt部分）"></a>流程（gpt部分）</h4><ol>
+<li>创建一个空的 Go 模块和一个 main.go 文件。</li>
+<li>在 main.go 文件中添加必要的包和路由，例如 <code>gin</code>、<code>gorm</code> 和 <code>vue.js</code>。</li>
+<li>创建一个数据库模型，例如 <code>Post</code> 和 <code>Comment</code>，然后使用 <code>gorm</code> 创建对应的数据库表。</li>
+<li>创建一个 <code>GET</code> 路由，用于返回主页面的 HTML 和 JavaScript 代码。</li>
+<li>创建一个 <code>POST</code> 路由，用于接收帖子的标题和内容，并将其存储到数据库中。</li>
+<li>创建一个 <code>GET</code> 路由，用于返回特定帖子的 HTML 和 JavaScript 代码，并在该页面上显示相关评论。</li>
+<li>创建一个 <code>POST</code> 路由，用于接收评论的内容，并将其存储到数据库中。</li>
+<li>在前端中，使用 <code>vue.js</code> 创建一个主页面，其中包含一个表单用于发布新帖子，并显示所有帖子的列表。</li>
+<li>在每个帖子页面上，使用 <code>vue.js</code> 创建一个表单用于回复评论，并显示所有评论的列表。</li>
+<li>将前端代码和后端代码合并在一起，并使用 <code>gin</code> 提供静态文件服务。</li>
+</ol>
+<p>具体流程解释：</p>
+<h3 id="工作日志部分（包括发癫部分）"><a href="#工作日志部分（包括发癫部分）" class="headerlink" title="工作日志部分（包括发癫部分）"></a>工作日志部分（包括发癫部分）</h3><h5 id="4-20尝试进行前后端分离"><a href="#4-20尝试进行前后端分离" class="headerlink" title="4.20尝试进行前后端分离"></a>4.20尝试进行前后端分离</h5><p>暂时理解：前后端分离&#x3D;前端+后端分为两个部分，两个部分都要运行起来整个程序才能跑？</p>
+<p>GPT的解释：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">前端部署：前端部分通常被打包成静态文件，并通过 Web 服务器（如 Nginx、Apache 等）提供给用户。前端部分可以使用 CDN（内容分发网络）来加速页面加载速度，并减轻 Web 服务器的负载压力。同时，前端可以使用缓存技术（如浏览器缓存、CDN 缓存等）来提高应用程序的性能和用户体验。</span><br><span class="line"></span><br><span class="line">后端部署：后端部分通常运行在独立的服务器或云平台上，用于处理前端发送的请求并提供相应的数据和服务。后端部分可以使用负载均衡技术（如 Nginx、HAProxy 等）来分发请求，并使用容器技术（如 Docker、Kubernetes 等）进行部署和扩展。同时，后端可以使用缓存技术（如 Redis、Memcached 等）来提高应用程序的性能和可扩展性。</span><br><span class="line"></span><br><span class="line">数据库部署：数据库通常被用来存储应用程序的数据，可以使用云数据库（如 AWS RDS、Azure SQL 等）或自建数据库（如 MySQL、PostgreSQL 等）来存储数据。数据库可以使用主从复制、读写分离等技术来提高数据的可用性和性能。</span><br><span class="line"></span><br><span class="line">持续集成和持续部署：可以使用 CI/CD 工具（如 Jenkins、GitLab CI、Travis CI 等）来实现自动化构建、测试、部署和发布。通过持续集成和持续部署，可以实现快速迭代和部署，提高开发效率和应用程序的质量。</span><br></pre></td></tr></table></figure>
 
-<p><a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/44044896" >VS Code 的常用快捷键 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以前后端的定义，不应该是以语言来定义，而是应该以它的运行环境，如果是在服务器端，就应该被称之为后端，代表着你看不见，摸不着。而如果运行在用户端，就应该被称之为前端，代表你是可以看得到的。</span><br></pre></td></tr></table></figure>
+
+<h6 id="看一些博客的理解："><a href="#看一些博客的理解：" class="headerlink" title="看一些博客的理解："></a>看一些博客的理解：</h6><ul>
+<li>前端后端的两种协作方式：B&#x2F;S,C&#x2F;S</li>
+</ul>
+<p>ref：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.zhihu.com/question/267014376/answer/444793972" >(26 封私信 &#x2F; 82 条消息) 如何正确理解前后端分离? - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></p>
+<p>前者的html文件由服务器端生成</p>
+<p>后者是html由浏览器生成，后端负责传递数据</p>
+<p>在前后端分离的方式，浏览器和服务端传递的是数据，而在服务器端渲染的过程中，传递的是Html网页。</p>
+<p>盒马生鲜提供两种方式，一种是前后端分离，一种是服务器端渲染。</p>
+<p>前后端分离是哪种方式呢？就是外卖或者是直接买生鲜，自己回家去做。</p>
+<p>服务器端渲染是哪种方式呢？就是直接在盒马鲜生自己加工，直接吃，或者是带回家吃。</p>
+<h6 id="想法："><a href="#想法：" class="headerlink" title="想法："></a>想法：</h6><p>使用前后端进行分离，可以将后端代码日后用java进行重构，前端保留之前的接口和文件？</p>
+<h5 id="4-22"><a href="#4-22" class="headerlink" title="4.22"></a>4.22</h5><p>重新使用go进行后端构建和前端，尝试做到前后端分离（感觉想法可以实现）</p>
+<p>后端使用gin网络框架，通过axios进行通信</p>
+<h6 id="使用的技术栈："><a href="#使用的技术栈：" class="headerlink" title="使用的技术栈："></a>使用的技术栈：</h6><ul>
+<li>前端搭建：vite</li>
+<li>使用语言：typescript</li>
+</ul>
+<h6 id="开始记录："><a href="#开始记录：" class="headerlink" title="开始记录："></a>开始记录：</h6><ul>
+<li>目前可以打开网页，考虑如何进行网页交互</li>
+<li>网页资源交互成功过一次，之后都不行了（好奇为什么，进一步研究一下）</li>
+</ul>
+<h5 id="4-23"><a href="#4-23" class="headerlink" title="4.23"></a>4.23</h5><ul>
+<li>使用postman作为API测试工具（学习捏）</li>
+</ul>
+<h5 id="4-24"><a href="#4-24" class="headerlink" title="4.24"></a>4.24</h5><ul>
+<li>尝试去学习postman（准备痛苦面具）</li>
+</ul>
+<h3 id="需要學習的東西"><a href="#需要學習的東西" class="headerlink" title="需要學習的東西"></a>需要學習的東西</h3><ul>
+<li>JSON文件格式</li>
+<li>使用postman<ul>
+<li>api document</li>
+<li>编写弄好的json测试文件进行测试</li>
+</ul>
+</li>
+<li>用vue的vite搭建好前端项目进行项目对接部分</li>
+</ul>
+<h3 id="记录（包括各种想法）"><a href="#记录（包括各种想法）" class="headerlink" title="记录（包括各种想法）"></a>记录（包括各种想法）</h3><ul>
+<li>可以使用mui组件库去设置（会方便很多）</li>
+</ul>
+<h3 id="执行命令方法："><a href="#执行命令方法：" class="headerlink" title="执行命令方法："></a>执行命令方法：</h3><p>前端：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接下来的命令顺序执行</span></span><br><span class="line">yarn create vite</span><br><span class="line">cd bbs-frontend</span><br><span class="line"> yarn <span class="comment">//安装对应依赖</span></span><br><span class="line"> yarn dev <span class="comment">//开始项目</span></span><br></pre></td></tr></table></figure>
+
+<p>后端：</p>
+<p>数据库部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//默认root密码修改为123456</span><br><span class="line">//修改文件的位置在zhongzhu-bbs\config\config.ini</span><br><span class="line">//另一个默认填充的位置在zhongzhu-bbs\utils\setting.go</span><br><span class="line">//先打开mysql命令行进行如下操作</span><br><span class="line">CREATE DATABASE testbbs;//此处testbbs是所使用的数据库</span><br><span class="line">show databases;//使用该句检测是否建立数据库成功</span><br></pre></td></tr></table></figure>
+
+<p>开始整个项目：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
 
             </div>
 
@@ -337,29 +355,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="../../18/%E7%88%AC%E5%B1%B1%EF%BC%8C%E4%BA%91%E6%B5%AE%EF%BC%8C%E5%A4%A9%E9%9C%B2%EF%BC%8C%E6%B0%B4%E6%BA%90/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">爬山，云浮，天露，水源</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="../../15/%E8%AE%BA%E6%96%87%EF%BC%8C%E8%AE%B2%E5%BA%A7%E9%98%85%E8%AF%BB%E8%A7%82%E7%9C%8B%E8%AE%B0%E5%BD%95/"
+                               href="../cs-net-lab-review/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">讲座论文啥子的观看想法</span>
+                                <span class="post-nav-title-item">计算机网络实验学习复盘</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -378,7 +381,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97"><span class="nav-number">1.</span> <span class="nav-text">Web项目开发日志</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-31"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">3.31</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-1"><span class="nav-number">1.0.0.0.0.2.</span> <span class="nav-text">4.1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-2"><span class="nav-number">1.0.0.0.0.3.</span> <span class="nav-text">4.2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-3"><span class="nav-number">1.0.0.0.0.4.</span> <span class="nav-text">4.3</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-16%EF%BC%9Afilter%E9%83%A8%E5%88%86-%E5%89%8D%E7%AB%AF"><span class="nav-number">1.0.0.0.0.5.</span> <span class="nav-text">4.16：filter部分(前端)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-17"><span class="nav-number">1.0.0.0.0.6.</span> <span class="nav-text">4.17</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-24"><span class="nav-number">1.0.0.0.0.7.</span> <span class="nav-text">4.24</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#VSCODE%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">VSCODE快捷键</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%EF%BC%88gpt%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">流程（gpt部分）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97%E9%83%A8%E5%88%86%EF%BC%88%E5%8C%85%E6%8B%AC%E5%8F%91%E7%99%AB%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">工作日志部分（包括发癫部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-20%E5%B0%9D%E8%AF%95%E8%BF%9B%E8%A1%8C%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB"><span class="nav-number">0.1.</span> <span class="nav-text">4.20尝试进行前后端分离</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9C%8B%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="nav-number">0.1.1.</span> <span class="nav-text">看一些博客的理解：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%83%B3%E6%B3%95%EF%BC%9A"><span class="nav-number">0.1.2.</span> <span class="nav-text">想法：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-22"><span class="nav-number">0.2.</span> <span class="nav-text">4.22</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88%EF%BC%9A"><span class="nav-number">0.2.1.</span> <span class="nav-text">使用的技术栈：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95%EF%BC%9A"><span class="nav-number">0.2.2.</span> <span class="nav-text">开始记录：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-23"><span class="nav-number">0.3.</span> <span class="nav-text">4.23</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-24"><span class="nav-number">0.4.</span> <span class="nav-text">4.24</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9D%B1%E8%A5%BF"><span class="nav-number"></span> <span class="nav-text">需要學習的東西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%EF%BC%88%E5%8C%85%E6%8B%AC%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">记录（包括各种想法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">执行命令方法：</span></a>
     </div>
 </div>
 
