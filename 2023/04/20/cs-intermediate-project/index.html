@@ -205,7 +205,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-04-24 12:57:36</span>
+        <span class="pc">2023-05-04 20:34:58</span>
     </span>
     
     
@@ -225,12 +225,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.1k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>7 分钟</span>
         </span>
     
     
@@ -244,8 +244,63 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p>目标：</p>
+                <h3 id="执行命令以及中间的各种依赖如何更新方法："><a href="#执行命令以及中间的各种依赖如何更新方法：" class="headerlink" title="执行命令以及中间的各种依赖如何更新方法："></a>执行命令以及中间的各种依赖如何更新方法：</h3><p>前端：</p>
+<blockquote>
+<p>注意前端使用的是yarn包来安装依赖，这里需要特别注意，如果使用的是npm会出现冲突（下次开会的时候说明一下就好）</p>
+</blockquote>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接下来的命令顺序执行</span></span><br><span class="line">yarn create vite</span><br><span class="line">cd bbs-frontend</span><br><span class="line"> yarn <span class="comment">//安装对应依赖</span></span><br><span class="line"> yarn dev <span class="comment">//开始项目</span></span><br></pre></td></tr></table></figure>
+
+<p>后端：</p>
+<p>数据库部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#默认root密码修改为123456,我的是这样的</span><br><span class="line">#修改文件的位置在zhongzhu-bbs\config\config.ini</span><br><span class="line">#另一个默认填充的位置在zhongzhu-bbs\utils\setting.go</span><br><span class="line"></span><br><span class="line">打开mysql命令行进行如下操作</span><br><span class="line">CREATE DATABASE testbbs;#此处testbbs是所使用的数据库</span><br><span class="line">show databases;#使用该句检测是否建立数据库成功</span><br></pre></td></tr></table></figure>
+
+<p>go代码部分：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">目前main.<span class="keyword">go</span>(乐天的耦合版本)中修改</span><br><span class="line">dsn := <span class="string">&quot;root:《自己的密码，两边的书名号不要打》@tcp(127.0.0.1:3306)/testbbs?charset=utf8mb4&amp;parseTime=True&amp;loc=Local&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>开始整个项目：（前端部分现在还在尝试，暂时不太行）</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="GO本地导入包问题："><a href="#GO本地导入包问题：" class="headerlink" title="GO本地导入包问题："></a>GO本地导入包问题：</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> moudle init</span><br><span class="line"><span class="keyword">go</span> mod tidy</span><br><span class="line"><span class="comment">//以上两个是如果你想要重新开始一个go项目时候应该如何去弄，尤其导入第三方库或者说驱动的时候</span></span><br><span class="line"></span><br><span class="line">去<span class="keyword">go</span>.mod里面看一看，把moudle名称修改成自己这个工作文件夹的名称</span><br><span class="line">比如这个文件夹的git位置是在<span class="keyword">go</span>-bbs,那么moudle名称就是</span><br><span class="line">moudle <span class="keyword">go</span>-bbs</span><br><span class="line">之后比如想要导入 <span class="keyword">go</span>-bbs/net包的某个函数（自己写的）</span><br><span class="line">那么其它模块引用的代码就是</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;go-bbs/net&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>补知识部分：</p>
+<h4 id="git常见问题："><a href="#git常见问题：" class="headerlink" title="git常见问题："></a>git常见问题：</h4><blockquote>
+<p>使用vscode啥的的时候经常会有分支有时候对不上（比如窝在gitee上面更新了一个fuckYou分支，但是在vscode本地上没办法看到），这里需要进行一些更新操作来保证更新进度一致</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首先执行</span></span><br><span class="line">git remote -v <span class="comment">#查看连接的远程仓库位置，我们的是</span></span><br><span class="line"><span class="comment">#origin  https://gitee.com/new_-sse_-bbs/zhongzhu-bbs.git (fetch)</span></span><br><span class="line"><span class="comment">#origin  https://gitee.com/new_-sse_-bbs/zhongzhu-bbs.git (push)</span></span><br><span class="line"></span><br><span class="line">git remote update origin --prune<span class="comment">#更新远程仓库</span></span><br><span class="line"></span><br><span class="line">git branch -r<span class="comment">#查看远程分支：</span></span><br><span class="line">git branch <span class="comment">#本地分支查看</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="需要學習的東西"><a href="#需要學習的東西" class="headerlink" title="需要學習的東西"></a>需要學習的東西</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+JSON文件格式</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+使用postman</p>
 <ul>
+<li><input checked="" disabled="" type="checkbox"> 基本的操作</li>
+<li><input disabled="" type="checkbox"> api document</li>
+<li><input disabled="" type="checkbox"> 编写弄好的json测试文件进行测试</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+用vue的vite搭建好前端项目进行项目对接部分</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+学习vue的element ui组件并且搭建起来，把数据传输进去</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+学习vue如何获取后端数据并且如何交互</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="记录（包括各种想法）"><a href="#记录（包括各种想法）" class="headerlink" title="记录（包括各种想法）"></a>记录（包括各种想法）</h3><ul>
+<li>可以使用mui组件库去设置（会方便很多）</li>
+<li>可以增加一个查看天气的部分的功能（花里胡哨但是表演效果好）</li>
+<li>能不能内置小游戏（之前的五子棋）</li>
+<li>能不能使用reveal.js去增加一下内容展示？</li>
+</ul>
+<h3 id="初始分析部分"><a href="#初始分析部分" class="headerlink" title="初始分析部分"></a>初始分析部分</h3><ul>
 <li>建立bbs</li>
 </ul>
 <p>开发语言：</p>
@@ -268,7 +323,7 @@
 <li>数据库开发工具，环境配置</li>
 <li>分析：文档编写（）</li>
 </ul>
-<h4 id="流程（gpt部分）"><a href="#流程（gpt部分）" class="headerlink" title="流程（gpt部分）"></a>流程（gpt部分）</h4><ol>
+<h4 id="流程（根据gpt给出的答案得出）"><a href="#流程（根据gpt给出的答案得出）" class="headerlink" title="流程（根据gpt给出的答案得出）"></a>流程（根据gpt给出的答案得出）</h4><ol>
 <li>创建一个空的 Go 模块和一个 main.go 文件。</li>
 <li>在 main.go 文件中添加必要的包和路由，例如 <code>gin</code>、<code>gorm</code> 和 <code>vue.js</code>。</li>
 <li>创建一个数据库模型，例如 <code>Post</code> 和 <code>Comment</code>，然后使用 <code>gorm</code> 创建对应的数据库表。</li>
@@ -314,29 +369,18 @@
 </ul>
 <h5 id="4-24"><a href="#4-24" class="headerlink" title="4.24"></a>4.24</h5><ul>
 <li>尝试去学习postman（准备痛苦面具）</li>
+<li>基本确认zxy后端api写的很自由，除了跑不了都好</li>
 </ul>
-<h3 id="需要學習的東西"><a href="#需要學習的東西" class="headerlink" title="需要學習的東西"></a>需要學習的東西</h3><ul>
-<li>JSON文件格式</li>
-<li>使用postman<ul>
-<li>api document</li>
-<li>编写弄好的json测试文件进行测试</li>
+<h5 id="5-3"><a href="#5-3" class="headerlink" title="5.3"></a>5.3</h5><ul>
+<li>可以增加一个查看天气的部分的功能（花里胡哨但是表演效果好）</li>
+<li>能不能内置小游戏（之前的五子棋）</li>
+<li>能不能使用reveal.js去增加一下内容展示？</li>
 </ul>
-</li>
-<li>用vue的vite搭建好前端项目进行项目对接部分</li>
+<h5 id="5-4"><a href="#5-4" class="headerlink" title="5.4"></a>5.4</h5><ul>
+<li><input checked="" disabled="" type="checkbox"> 进行后端拆分尝试</li>
+<li><input disabled="" type="checkbox"> 前端如何调用后端的api进行学习，并测试</li>
+<li><input checked="" disabled="" type="checkbox"> go包的导入问题</li>
 </ul>
-<h3 id="记录（包括各种想法）"><a href="#记录（包括各种想法）" class="headerlink" title="记录（包括各种想法）"></a>记录（包括各种想法）</h3><ul>
-<li>可以使用mui组件库去设置（会方便很多）</li>
-</ul>
-<h3 id="执行命令方法："><a href="#执行命令方法：" class="headerlink" title="执行命令方法："></a>执行命令方法：</h3><p>前端：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接下来的命令顺序执行</span></span><br><span class="line">yarn create vite</span><br><span class="line">cd bbs-frontend</span><br><span class="line"> yarn <span class="comment">//安装对应依赖</span></span><br><span class="line"> yarn dev <span class="comment">//开始项目</span></span><br></pre></td></tr></table></figure>
-
-<p>后端：</p>
-<p>数据库部分：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//默认root密码修改为123456</span><br><span class="line">//修改文件的位置在zhongzhu-bbs\config\config.ini</span><br><span class="line">//另一个默认填充的位置在zhongzhu-bbs\utils\setting.go</span><br><span class="line">//先打开mysql命令行进行如下操作</span><br><span class="line">CREATE DATABASE testbbs;//此处testbbs是所使用的数据库</span><br><span class="line">show databases;//使用该句检测是否建立数据库成功</span><br></pre></td></tr></table></figure>
-
-<p>开始整个项目：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
 
             </div>
 
@@ -354,6 +398,21 @@
 
             
                 <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="../../../05/03/book-review/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">读书笔记</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                            </a>
+                        </div>
                     
                     
                         <div class="article-next">
@@ -381,7 +440,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%EF%BC%88gpt%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">流程（gpt部分）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97%E9%83%A8%E5%88%86%EF%BC%88%E5%8C%85%E6%8B%AC%E5%8F%91%E7%99%AB%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">工作日志部分（包括发癫部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-20%E5%B0%9D%E8%AF%95%E8%BF%9B%E8%A1%8C%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB"><span class="nav-number">0.1.</span> <span class="nav-text">4.20尝试进行前后端分离</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9C%8B%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="nav-number">0.1.1.</span> <span class="nav-text">看一些博客的理解：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%83%B3%E6%B3%95%EF%BC%9A"><span class="nav-number">0.1.2.</span> <span class="nav-text">想法：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-22"><span class="nav-number">0.2.</span> <span class="nav-text">4.22</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88%EF%BC%9A"><span class="nav-number">0.2.1.</span> <span class="nav-text">使用的技术栈：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95%EF%BC%9A"><span class="nav-number">0.2.2.</span> <span class="nav-text">开始记录：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-23"><span class="nav-number">0.3.</span> <span class="nav-text">4.23</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-24"><span class="nav-number">0.4.</span> <span class="nav-text">4.24</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9D%B1%E8%A5%BF"><span class="nav-number"></span> <span class="nav-text">需要學習的東西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%EF%BC%88%E5%8C%85%E6%8B%AC%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95%EF%BC%89"><span class="nav-number"></span> <span class="nav-text">记录（包括各种想法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">执行命令方法：</span></a>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E4%B8%AD%E9%97%B4%E7%9A%84%E5%90%84%E7%A7%8D%E4%BE%9D%E8%B5%96%E5%A6%82%E4%BD%95%E6%9B%B4%E6%96%B0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">执行命令以及中间的各种依赖如何更新方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GO%E6%9C%AC%E5%9C%B0%E5%AF%BC%E5%85%A5%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">GO本地导入包问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">git常见问题：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%AD%B8%E7%BF%92%E7%9A%84%E6%9D%B1%E8%A5%BF"><span class="nav-number">2.</span> <span class="nav-text">需要學習的東西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BD%95%EF%BC%88%E5%8C%85%E6%8B%AC%E5%90%84%E7%A7%8D%E6%83%B3%E6%B3%95%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">记录（包括各种想法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%88%86%E6%9E%90%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">初始分析部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%EF%BC%88%E6%A0%B9%E6%8D%AEgpt%E7%BB%99%E5%87%BA%E7%9A%84%E7%AD%94%E6%A1%88%E5%BE%97%E5%87%BA%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">流程（根据gpt给出的答案得出）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97%E9%83%A8%E5%88%86%EF%BC%88%E5%8C%85%E6%8B%AC%E5%8F%91%E7%99%AB%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">工作日志部分（包括发癫部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-20%E5%B0%9D%E8%AF%95%E8%BF%9B%E8%A1%8C%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB"><span class="nav-number">5.0.1.</span> <span class="nav-text">4.20尝试进行前后端分离</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9C%8B%E4%B8%80%E4%BA%9B%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="nav-number">5.0.1.1.</span> <span class="nav-text">看一些博客的理解：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%83%B3%E6%B3%95%EF%BC%9A"><span class="nav-number">5.0.1.2.</span> <span class="nav-text">想法：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-22"><span class="nav-number">5.0.2.</span> <span class="nav-text">4.22</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88%EF%BC%9A"><span class="nav-number">5.0.2.1.</span> <span class="nav-text">使用的技术栈：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E8%AE%B0%E5%BD%95%EF%BC%9A"><span class="nav-number">5.0.2.2.</span> <span class="nav-text">开始记录：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-23"><span class="nav-number">5.0.3.</span> <span class="nav-text">4.23</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-24"><span class="nav-number">5.0.4.</span> <span class="nav-text">4.24</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3"><span class="nav-number">5.0.5.</span> <span class="nav-text">5.3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-4"><span class="nav-number">5.0.6.</span> <span class="nav-text">5.4</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
